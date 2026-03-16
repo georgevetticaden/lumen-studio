@@ -6,7 +6,7 @@ Lumen doesn't just suggest things — it takes action. It scaffolds projects, ga
 
 [![Demo Video](https://img.youtube.com/vi/xbpQXnUWg00/maxresdefault.jpg)](https://www.youtube.com/watch?v=xbpQXnUWg00)
 
-📺 **[Watch Demo Video](https://www.youtube.com/watch?v=xbpQXnUWg00)** | 📖 **[Read the Blog](https://agenticmindset.ai)**
+📺 **[Watch Demo Video](https://www.youtube.com/watch?v=xbpQXnUWg00)** | 📖 **[Read the Blog](https://agenticmindset.ai/blog/)**
 
 *From blank folder to published Google Slides deck — project scaffold, YouTube and web research, source synthesis, 24-slide generation, Gemini image creation and iteration, and one-command publish.*
 
