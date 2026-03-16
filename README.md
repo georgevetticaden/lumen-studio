@@ -5,6 +5,9 @@ A content creation agent that turns your IDE into a creative studio — built on
 Lumen doesn't just suggest things — it takes action. It scaffolds projects, gathers research, writes drafts, builds HTML slides and diagrams, generates AI images, captures pixel-perfect screenshots, and publishes to Google Slides. And it does all of it in your voice, with your design patterns, automatically.
 
 [![Demo Video](https://img.youtube.com/vi/xbpQXnUWg00/maxresdefault.jpg)](https://www.youtube.com/watch?v=xbpQXnUWg00)
+
+📺 **[Watch Demo Video](https://www.youtube.com/watch?v=xbpQXnUWg00)** | 📖 **[Read the Blog](https://agenticmindset.ai)**
+
 *From blank folder to published Google Slides deck — project scaffold, YouTube and web research, source synthesis, 24-slide generation, Gemini image creation and iteration, and one-command publish.*
 
 ---
