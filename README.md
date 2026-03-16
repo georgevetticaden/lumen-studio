@@ -255,6 +255,6 @@ Open the project in VS Code with Claude Code. Lumen's skills activate automatica
 
 ## Read More
 
-- **Blog**: [Encoding Your Creative DNA: How I Turned My Content Workflow into an AI Agent](https://agenticmindset.ai)
+- **Blog**: [Encoding Your Creative DNA: How I Turned My Content Workflow into an AI Agent](https://agenticmindset.ai/blog/encoding-creative-dna-ai-content-agent/)
 - **Demo Video**: [Watch on YouTube](https://www.youtube.com/watch?v=xbpQXnUWg00)
 - **Author**: [George Vetticaden](https://linkedin.com/in/georgevetticaden) — founder of [Agentic Mindset](https://agenticmindset.ai)
