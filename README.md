@@ -21,10 +21,14 @@ Every content project — blog, presentation, or standalone image — follows th
 ![Phase 1 — Research & Context Creation](docs/images/phase1-research-context-sketch-v3-build-1.png)
 *Phase 1: Gather → Synthesize → Discuss → Outline, repeating until the vision is captured.*
 
+See it in practice — the [final iterated outline (v14)](projects/personal/ocia/2025-12-Beatitudes/context/gold/beatitudes-preso-outline-v14.md) from a Beatitudes presentation that took 14 iterations to get right.
+
 **Phase 2: Creative Iteration** — iterate on execution. Gold Context drives everything: writing, slides, diagrams, images, screenshots, publishing. Different outputs, same loop.
 
 ![Phase 2 — Creative Iteration](docs/images/phase2-creative-iteration-sketch-v3-build-1.png)
 *Phase 2: Write → Iterate → Render → Publish, repeating until it's right.*
+
+And here's what comes out the other end — a [published 24-slide presentation](https://docs.google.com/presentation/d/e/2PACX-1vRpJT5xZqSsO71iZnHNfgL9JDp-44S_loN10Gfw9AR0NKXRvOFlzECOEFir-f7lHeE_BR1-u_J814si/pub?start=true&loop=false&delayms=3000), built entirely in VS Code and synced to Google Slides with a single command.
 
 ---
 
