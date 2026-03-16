@@ -1,0 +1,77 @@
+/**
+ * Image Placeholder Component — Structural
+ * Theme-AGNOSTIC: no colors defined here.
+ * Pair with a theme-specific component-colors.css:
+ *   - sacred-gold: library/themes/sacred-gold/component-colors.css
+ *   - luminous-ivory: library/themes/luminous-ivory/component-colors.css
+ *
+ * Use during development to mark where images will go.
+ * Include AI prompts for image generation.
+ *
+ * Usage:
+ * <div class="image-placeholder">
+ *     <div class="placeholder-icon">📊</div>
+ *     <div class="placeholder-text">
+ *         <strong>IMAGE:</strong> Brief description
+ *         <br><br>
+ *         <strong>AI Prompt:</strong> Detailed generation prompt
+ *     </div>
+ * </div>
+ */
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.placeholder-icon {
+    font-size: 56px;
+    margin-bottom: 20px;
+    opacity: 0.4;
+}
+
+.placeholder-text {
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.7;
+    max-width: 90%;
+}
+
+/* Size variants */
+.image-placeholder.placeholder-small {
+    min-height: 150px;
+    padding: 20px;
+}
+
+.image-placeholder.placeholder-small .placeholder-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+.image-placeholder.placeholder-small .placeholder-text {
+    font-size: 12px;
+}
+
+.image-placeholder.placeholder-large {
+    min-height: 400px;
+}
+
+.image-placeholder.placeholder-large .placeholder-icon {
+    font-size: 72px;
+}
+
+/* Fixed height variants */
+.image-placeholder.placeholder-85 {
+    height: 85%;
+}
+
+.image-placeholder.placeholder-full {
+    height: 100%;
+}

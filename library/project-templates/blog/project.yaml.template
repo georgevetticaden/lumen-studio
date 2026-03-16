@@ -1,0 +1,22 @@
+name: "{{NAME}}"
+type: blog
+theme: {{THEME}}
+date: {{DATE}}
+
+gold:
+  outline: context/gold/{{SLUG}}-outline-v1.md
+
+blog:
+  file: blog/{{SLUG}}-v1.md
+
+diagrams_dir: diagrams
+screenshots_dir: diagrams/screenshots
+
+slides: []
+
+demo_video:
+  script: demo-video/{{SLUG}}-demo-script-v1.md
+
+linkedin_post:
+  file: linkedin-post/{{SLUG}}-linkedin-v1.md
+  published_url: null

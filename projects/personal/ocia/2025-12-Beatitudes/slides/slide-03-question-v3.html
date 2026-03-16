@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide 2: The Universal Question</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Theme base -->
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/theme-base.css">
+    <!-- Standard components -->
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/header.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/header-colors.css">
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/typography.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/typography-colors.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/component-colors.css">
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/two-column.css">
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/build-system.css">
+
+    <style>
+        /* ── Slide-specific overrides ── */
+        .header {
+            margin-bottom: 40px;
+        }
+
+        .title {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            font-size: 28px;
+        }
+
+        /* Build content area */
+        .builds-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        /* ── Stat block ── */
+        .stat-row {
+            display: flex;
+            align-items: baseline;
+            gap: 20px;
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 64px;
+            font-weight: 600;
+            color: rgba(218, 165, 32, 0.9);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 0.5px;
+            line-height: 1.6;
+        }
+
+        .stat-label strong {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        /* ── Augustine quote block ── */
+        .augustine-block {
+            background: linear-gradient(135deg, rgba(218, 165, 32, 0.1), rgba(218, 165, 32, 0.03));
+            border-left: 4px solid rgba(218, 165, 32, 0.6);
+            padding: 25px 30px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .augustine-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            font-weight: 300;
+            color: #fff;
+            font-style: italic;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .augustine-quote em {
+            font-style: normal;
+            color: rgba(218, 165, 32, 0.95);
+        }
+
+        .augustine-attribution {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+        }
+
+        /* ── Aquinas insight ── */
+        .insight-block {
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .insight-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.5;
+        }
+
+        .insight-text em {
+            font-style: normal;
+            color: rgba(218, 165, 32, 0.9);
+        }
+
+        /* ── Image placeholder ── */
+        .image-placeholder {
+            width: 100%;
+            height: 85%;
+            background: linear-gradient(145deg, rgba(40, 40, 60, 0.4), rgba(25, 25, 45, 0.4));
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .placeholder-icon {
+            font-size: 56px;
+            margin-bottom: 20px;
+            opacity: 0.4;
+        }
+
+        .placeholder-text {
+            color: rgba(255,255,255,0.4);
+            font-size: 14px;
+            text-align: center;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="content content-two-col">
+            <div class="left-column">
+                <div class="header">
+                    <h1 class="title">Our Quest for Happiness</h1>
+                    <p class="subtitle">We sense within ourselves a hunger for something more</p>
+                </div>
+
+                <div class="builds-container">
+                    <!-- Build 1: Self-help industry stat -->
+                    <div class="build-item" data-build="1">
+                        <div class="stat-row">
+                            <div class="stat-number">$13.4B</div>
+                            <div class="stat-label">
+                                <strong>Self-help industry</strong> — annual revenue<br>
+                                Everyone searching for the answer...
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Build 2: Augustine quote -->
+                    <div class="build-item" data-build="2">
+                        <div class="augustine-block">
+                            <p class="augustine-quote">
+                                "You have made us for yourself, O Lord, and our hearts are <em>restless</em> until they rest in <em>you</em>."
+                            </p>
+                            <p class="augustine-attribution">— St. Augustine, Confessions</p>
+                        </div>
+                    </div>
+
+                    <!-- Build 3: Aquinas insight -->
+                    <div class="build-item" data-build="3">
+                        <div class="insight-block">
+                            <p class="insight-text">
+                                We are <em>hungry for God</em> — but we try to fill that hunger with something <em>less than God</em>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="image-placeholder">
+                    <div class="placeholder-icon">📚</div>
+                    <div class="placeholder-text">
+                        <strong>IMAGE:</strong> Collage of popular self-help books<br><br>
+                        Suggestions: Atomic Habits, The Power of Now,<br>
+                        7 Habits, Think and Grow Rich, etc.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>const totalBuilds = 3;</script>
+    <script src="../../../../../library/creative-dna/core/builds.js"></script>
+</body>
+</html>

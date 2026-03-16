@@ -1,0 +1,118 @@
+/* component-colors.css — Luminous-ivory colors for slide component classes.
+   Pairs with structural component files in library/creative-dna/slides/components/.
+   Covers: card.css, quote-block.css, image-placeholder.css, stat-display.css, transition.css
+
+   Components define layout/sizing (theme-agnostic).
+   This file defines colors (theme-specific for luminous-ivory light theme).
+*/
+
+
+/* ══════════════════════════════════════════════════════════
+   QUOTE BLOCK — quote-block.css
+   ══════════════════════════════════════════════════════════ */
+
+.quote-block {
+    background: #fff;
+    border-left-color: rgba(170, 120, 20, 0.7);
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.12),
+        0 4px 12px rgba(0, 0, 0, 0.08),
+        0 16px 48px rgba(0, 0, 0, 0.06);
+}
+
+.quote-text           { color: rgba(45, 42, 38, 0.78); }
+.quote-text em        { color: rgba(170, 120, 20, 0.95); }
+.quote-attribution    { color: rgba(45, 42, 38, 0.45); }
+
+.quote-block.quote-centered {
+    border-top-color: rgba(170, 120, 20, 0.65);
+}
+
+/* CCC reference label */
+.ccc-ref              { color: rgba(170, 120, 20, 0.40); }
+
+/* CCC quote block */
+.ccc-quote            { border-top-color: rgba(45, 42, 38, 0.08); }
+.ccc-quote .quote-text     { color: rgba(45, 42, 38, 0.78); }
+.ccc-quote .quote-text em  { color: rgba(170, 120, 20, 0.95); }
+.ccc-quote .quote-attribution { color: rgba(45, 42, 38, 0.40); }
+
+
+/* ══════════════════════════════════════════════════════════
+   CARD — card.css
+   ══════════════════════════════════════════════════════════ */
+
+.card {
+    --card-accent-color: rgba(170, 120, 20, 0.65);
+    background: #fff;
+    border: 1px solid rgba(45, 42, 38, 0.06);
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.12),
+        0 4px 12px rgba(0, 0, 0, 0.08),
+        0 16px 48px rgba(0, 0, 0, 0.06);
+}
+
+.card.card-accent::before {
+    background: var(--card-accent-color);
+}
+
+.card-title           { color: #1E1B17; }
+.card-description     { color: rgba(45, 42, 38, 0.65); }
+
+.card.card-hover:hover {
+    background: #fff;
+    border-color: rgba(45, 42, 38, 0.12);
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.15),
+        0 6px 16px rgba(0, 0, 0, 0.10),
+        0 20px 56px rgba(0, 0, 0, 0.08);
+}
+
+/* Pre-defined accent colors (adjusted for light background) */
+.card[data-accent="teal"]   { --card-accent-color: #0D9488; }
+.card[data-accent="cyan"]   { --card-accent-color: #0891B2; }
+.card[data-accent="purple"] { --card-accent-color: #7C3AED; }
+.card[data-accent="gold"]   { --card-accent-color: rgba(170, 120, 20, 0.9); }
+.card[data-accent="green"]  { --card-accent-color: #3d8c5f; }
+.card[data-accent="pink"]   { --card-accent-color: #8c3d6d; }
+.card[data-accent="orange"] { --card-accent-color: #8c5f3d; }
+.card[data-accent="blue"]   { --card-accent-color: #3d5f8c; }
+
+
+/* ══════════════════════════════════════════════════════════
+   IMAGE PLACEHOLDER — image-placeholder.css
+   ══════════════════════════════════════════════════════════ */
+
+.image-placeholder {
+    background: linear-gradient(145deg, rgba(45, 42, 38, 0.06), rgba(45, 42, 38, 0.03));
+    border: 1px solid rgba(45, 42, 38, 0.08);
+}
+
+.placeholder-text          { color: rgba(45, 42, 38, 0.40); }
+.placeholder-text strong   { color: rgba(45, 42, 38, 0.55); }
+
+
+/* ══════════════════════════════════════════════════════════
+   STAT DISPLAY — stat-display.css
+   ══════════════════════════════════════════════════════════ */
+
+.stat-number          { color: rgba(170, 120, 20, 0.95); }
+.stat-label           { color: rgba(45, 42, 38, 0.65); }
+.stat-label strong    { color: #1E1B17; }
+
+
+/* ══════════════════════════════════════════════════════════
+   TRANSITION — transition.css
+   ══════════════════════════════════════════════════════════ */
+
+.transition-statement { border-top-color: rgba(45, 42, 38, 0.10); }
+.transition-text      { color: rgba(45, 42, 38, 0.85); }
+.transition-text em   { color: rgba(170, 120, 20, 0.95); }
+
+.transition-statement.transition-accent {
+    border-top-color: rgba(170, 120, 20, 0.30);
+}
+
+.transition-statement.transition-arrow::before {
+    color: rgba(170, 120, 20, 0.70);
+}

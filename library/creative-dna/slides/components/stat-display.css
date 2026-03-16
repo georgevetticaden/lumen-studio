@@ -1,0 +1,81 @@
+/**
+ * Stat Display Component — Structural
+ * Theme-AGNOSTIC: no colors defined here.
+ * Pair with a theme-specific component-colors.css:
+ *   - sacred-gold: library/themes/sacred-gold/component-colors.css
+ *   - luminous-ivory: library/themes/luminous-ivory/component-colors.css
+ *
+ * For displaying large statistics with labels.
+ *
+ * Usage:
+ * <div class="stat">
+ *     <div class="stat-number">85%</div>
+ *     <div class="stat-label">
+ *         of developers report <strong>increased productivity</strong>
+ *     </div>
+ * </div>
+ */
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 64px;
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+}
+
+.stat-label strong {
+    font-weight: 500;
+}
+
+/* Size variants */
+.stat.stat-large .stat-number {
+    font-size: 80px;
+}
+
+.stat.stat-small .stat-number {
+    font-size: 48px;
+}
+
+.stat.stat-small .stat-label {
+    font-size: 13px;
+}
+
+/* Horizontal layout variant */
+.stat.stat-horizontal {
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+    text-align: left;
+}
+
+.stat.stat-horizontal .stat-number {
+    margin-bottom: 0;
+}
+
+/* With icon variant */
+.stat-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+
+/* Stat group for multiple stats in a row */
+.stat-group {
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+}
+
+.stat-group .stat {
+    flex: 1;
+}

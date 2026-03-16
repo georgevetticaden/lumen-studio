@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagram Title</title>
+
+    <!-- Clean Slate Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Theme base -->
+    <link rel="stylesheet" href="../../../themes/clean-slate/theme-base.css">
+    <!-- Standard components -->
+    <link rel="stylesheet" href="components/header.css">
+    <link rel="stylesheet" href="components/typography.css">
+    <link rel="stylesheet" href="../../themes/clean-slate/typography-colors.css">
+
+    <style>
+        /* ── Slide-specific overrides ── */
+        .content {
+            padding: 40px 50px;
+        }
+
+        /* ── Diagram layout ── */
+        .diagram-area {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flow-container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        /* ── Nodes ── */
+        .node {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 25px 30px;
+            min-width: 180px;
+            text-align: center;
+            box-shadow:
+                0 1px 3px rgba(0, 0, 0, 0.1),
+                0 4px 16px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid transparent;
+        }
+
+        /* Override typography.css — template uses simpler emoji icons */
+        .node-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+            width: auto;
+            height: auto;
+            border-radius: 0;
+            display: block;
+        }
+
+        /* Override typography.css — template uses smaller/lighter titles */
+        .node-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        /* Node color variants */
+        .node-primary { border-left-color: var(--color-teal); }
+        .node-secondary { border-left-color: var(--color-cyan); }
+        .node-tertiary { border-left-color: var(--color-purple); }
+
+        /* ── Arrows ── */
+        .arrow {
+            font-size: 28px;
+            color: var(--color-teal);
+            opacity: 0.6;
+        }
+
+        .arrow-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-top: -15px;
+        }
+
+        /* ── Legend ── */
+        .legend {
+            display: flex;
+            gap: 25px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        .legend-color.primary { background: var(--color-teal); }
+        .legend-color.secondary { background: var(--color-cyan); }
+        .legend-color.tertiary { background: var(--color-purple); }
+    </style>
+</head>
+<body>
+    <div class="diagram">
+        <div class="content">
+            <!-- Header -->
+            <div class="header">
+                <h1 class="title">Diagram Title</h1>
+                <p class="subtitle">Brief description of what this diagram shows</p>
+            </div>
+
+            <!-- Main diagram area -->
+            <div class="diagram-area">
+                <div class="flow-container">
+                    <!-- Node 1 -->
+                    <div class="node node-primary build-item" data-build="1">
+                        <div class="node-icon">📥</div>
+                        <div class="node-title">Input</div>
+                        <div class="node-desc">Data source or trigger</div>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="build-item" data-build="2">
+                        <div class="arrow">→</div>
+                        <div class="arrow-label">transforms</div>
+                    </div>
+
+                    <!-- Node 2 -->
+                    <div class="node node-secondary build-item" data-build="2">
+                        <div class="node-icon">⚙️</div>
+                        <div class="node-title">Process</div>
+                        <div class="node-desc">Transformation logic</div>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="build-item" data-build="3">
+                        <div class="arrow">→</div>
+                        <div class="arrow-label">produces</div>
+                    </div>
+
+                    <!-- Node 3 -->
+                    <div class="node node-tertiary build-item" data-build="3">
+                        <div class="node-icon">📤</div>
+                        <div class="node-title">Output</div>
+                        <div class="node-desc">Result or action</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legend -->
+            <div class="legend build-item" data-build="4">
+                <div class="legend-item">
+                    <div class="legend-color primary"></div>
+                    <span>Data Sources</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color secondary"></div>
+                    <span>Processing</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color tertiary"></div>
+                    <span>Outputs</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>const totalBuilds = 4; const initialBuild = 4;</script>
+    <script src="../../core/builds.js"></script>
+</body>
+</html>

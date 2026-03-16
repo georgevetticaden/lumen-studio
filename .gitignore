@@ -1,0 +1,32 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Slide screenshots (generated, not tracked)
+**/screenshots/
+
+# Baseline screenshots (temporary, for regression testing)
+**/screenshots-baseline/
+
+# Pre-typography refactoring backups (temporary, remove after confirming changes)
+**/slides-backup-pre-typography/
+
+# Credentials (should be in ~/.content-studio/, but just in case)
+*.pickle
+**/credentials.json
+**/token.pickle
+**/client_secret*.json
+.env
+
+# Editor
+.vscode/
+*.swp
+*.swo
+projects/personal/ocia/2025-12-beatitudes/.DS_Store

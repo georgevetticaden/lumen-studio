@@ -1,0 +1,58 @@
+/* deliverables.css — Hand Drawn Theme: deliverable output card row
+   Used by Phase 2 diagrams showing output deliverable packages.
+
+   Requires: theme-base.css loaded first (CSS variables must be defined).
+*/
+
+/* ── Deliverables section ── */
+.deliverables-section { width: 100%; }
+
+.deliverables-label {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.deliverables-row {
+    display: flex;
+    gap: 12px;
+}
+
+.deliverable-card {
+    flex: 1;
+    background: var(--bg-card-tinted);
+    border: 2.5px solid var(--border-solid);
+    border-radius: 6px;
+    padding: 14px;
+    text-align: center;
+}
+
+/* Alternating sketch rotations */
+.deliverable-card:nth-child(1) { transform: rotate(-0.6deg); }
+.deliverable-card:nth-child(2) { transform: rotate(0.4deg); }
+.deliverable-card:nth-child(3) { transform: rotate(-0.5deg); }
+
+.deliverable-icon {
+    font-size: 30px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.deliverable-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+.deliverable-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+}

@@ -1,0 +1,116 @@
+/**
+ * OCIA Presentation Theme Variables
+ *
+ * Elegant, reverent theme for church presentations.
+ */
+
+:root {
+    /* ============================================
+       GOLD ACCENT COLORS
+       ============================================ */
+    --color-gold: rgba(218, 165, 32, 0.9);
+    --color-gold-rgb: 218, 165, 32;
+    --color-gold-light: rgba(218, 165, 32, 0.6);
+    --color-gold-dim: rgba(218, 165, 32, 0.3);
+    --color-gold-subtle: rgba(218, 165, 32, 0.1);
+
+    /* ============================================
+       SEMANTIC ACCENT COLORS
+       ============================================ */
+    --color-positive: #4a9c6d;
+    --color-caution: #9c6d4a;
+    --color-negative: rgba(180, 80, 80, 0.9);
+    --color-spiritual: #9c4a7d;
+    --color-wisdom: #4a6d9c;
+
+    /* ============================================
+       BACKGROUND COLORS
+       ============================================ */
+    --color-bg-primary: #0d0d12;
+    --color-bg-secondary: #0a0a0f;
+    --color-bg-card: rgba(255, 255, 255, 0.03);
+    --color-bg-quote: linear-gradient(135deg, rgba(218, 165, 32, 0.1), rgba(218, 165, 32, 0.03));
+
+    /* ============================================
+       BORDER COLORS
+       ============================================ */
+    --color-border: rgba(255, 255, 255, 0.08);
+    --color-border-gold: rgba(218, 165, 32, 0.6);
+    --color-border-accent: rgba(218, 165, 32, 0.2);
+
+    /* ============================================
+       TEXT COLORS
+       ============================================ */
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --text-muted: rgba(255, 255, 255, 0.5);
+    --text-subtle: rgba(255, 255, 255, 0.35);
+
+    /* ============================================
+       ACCENT (Default: Gold)
+       ============================================ */
+    --accent-color: var(--color-gold);
+
+    /* ============================================
+       TYPOGRAPHY
+       ============================================ */
+    --font-display: 'Cormorant Garamond', 'Georgia', serif;
+    --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Font sizes */
+    --text-xs: 12px;
+    --text-sm: 14px;
+    --text-base: 15px;
+    --text-lg: 18px;
+    --text-xl: 22px;
+    --text-2xl: 26px;
+    --text-3xl: 32px;
+    --text-4xl: 48px;
+    --text-5xl: 64px;
+
+    /* ============================================
+       SPACING
+       ============================================ */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 25px;
+    --space-8: 30px;
+    --space-10: 40px;
+    --space-12: 50px;
+
+    /* ============================================
+       RADII
+       ============================================ */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+
+    /* ============================================
+       TRANSITIONS
+       ============================================ */
+    --transition-fast: 150ms ease;
+    --transition-base: 300ms ease;
+    --transition-slow: 500ms ease-out;
+}
+
+/* ============================================
+   GRADIENT BACKGROUND
+   ============================================ */
+.theme-bg {
+    background:
+        radial-gradient(ellipse at 30% 20%, rgba(45, 45, 80, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(60, 40, 30, 0.3) 0%, transparent 50%),
+        linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+}
+
+.theme-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+}

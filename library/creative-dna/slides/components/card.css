@@ -1,0 +1,86 @@
+/**
+ * Card Component — Structural
+ * Theme-AGNOSTIC: no colors defined here.
+ * Pair with a theme-specific component-colors.css:
+ *   - sacred-gold: library/themes/sacred-gold/component-colors.css
+ *   - luminous-ivory: library/themes/luminous-ivory/component-colors.css
+ *
+ * Usage:
+ * <div class="card">
+ *     <div class="card-icon">🎯</div>
+ *     <h3 class="card-title">Card Title</h3>
+ *     <p class="card-description">Card description text</p>
+ * </div>
+ *
+ * Variants:
+ * - .card-accent: Adds colored top accent bar
+ * - .card-hover: Adds hover effect (for interactive contexts)
+ */
+
+.card {
+    border-radius: 12px;
+    padding: 30px 25px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Accent bar variant */
+.card.card-accent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+}
+
+.card-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.card-description {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Hover variant (for interactive slides) */
+.card.card-hover {
+    transition: all 0.3s ease;
+}
+
+.card.card-hover:hover {
+    transform: translateY(-2px);
+}
+
+/* Compact variant */
+.card.card-compact {
+    padding: 20px 18px;
+}
+
+.card.card-compact .card-icon {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.card.card-compact .card-title {
+    font-size: 16px;
+}
+
+.card.card-compact .card-description {
+    font-size: 13px;
+}
+
+/* Left-aligned variant */
+.card.card-left {
+    text-align: left;
+}

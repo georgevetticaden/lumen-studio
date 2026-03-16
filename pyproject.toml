@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cstudio"
+version = "0.1.0"
+description = "Content Studio CLI — screenshots, publishing, and project scaffolding"
+requires-python = ">=3.10"
+dependencies = [
+    "pyyaml>=6.0",
+    "structlog>=24.0",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+screenshots = ["selenium>=4.15"]
+google = [
+    "google-auth>=2.0",
+    "google-auth-oauthlib>=1.0",
+    "google-api-python-client>=2.0",
+]
+all = ["cstudio[screenshots,google]"]
+
+[project.scripts]
+cstudio = "cstudio.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]

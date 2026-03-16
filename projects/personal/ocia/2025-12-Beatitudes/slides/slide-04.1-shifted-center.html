@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide 4b: When We Shift the Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/theme-base.css">
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/header.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/header-colors.css">
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/typography.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/typography-colors.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/component-colors.css">
+    <style>
+        /* Slide-specific overrides */
+        .content {
+            padding: 40px 60px;
+        }
+
+        /* Header */
+        .header {
+            margin-bottom: 25px;
+        }
+
+        .title {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 26px;
+        }
+
+        /* Main visual area */
+        .wheels-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            position: relative;
+        }
+
+        /* Arrow between wheels */
+        .arrow-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.5s ease-out;
+        }
+
+        .arrow-container.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .arrow {
+            font-size: 48px;
+            color: rgba(180, 80, 80, 0.8);
+        }
+
+        .arrow-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(180, 80, 80, 0.7);
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+        }
+
+        /* Wheel wrapper */
+        .wheel-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .wheel-wrapper.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .wheel-wrapper.healthy {
+            /* Slightly smaller and faded when broken wheel appears */
+        }
+
+        .wheel-wrapper.broken {
+            /* Broken wheel styling handled in SVG */
+        }
+
+        /* Wheel labels */
+        .wheel-label {
+            text-align: center;
+        }
+
+        .wheel-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 6px;
+        }
+
+        .healthy .wheel-title {
+            color: rgba(218, 165, 32, 0.9);
+        }
+
+        .broken .wheel-title {
+            color: rgba(180, 80, 80, 0.9);
+        }
+
+        .wheel-desc {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+        }
+
+        /* SVG wheels */
+        .wheel-svg {
+            width: 340px;
+            height: 340px;
+        }
+
+        .wheel-wrapper.healthy .wheel-svg {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Transition statement */
+        .transition-bar {
+            margin-top: 15px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(218, 165, 32, 0.2);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s ease-out;
+        }
+
+        .transition-bar.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .transition-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+            font-style: italic;
+        }
+
+        .transition-text em {
+            font-style: normal;
+            color: rgba(218, 165, 32, 0.95);
+        }
+
+        /* Four substitutes indicator under broken wheel */
+        .substitutes-row {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 8px;
+            opacity: 0;
+            transition: all 0.4s ease-out;
+        }
+
+        .substitutes-row.visible {
+            opacity: 1;
+        }
+
+        .substitute-mini {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .substitute-mini.active {
+            border-color: rgba(74, 156, 109, 0.6);
+            background: rgba(74, 156, 109, 0.15);
+            color: #4a9c6d;
+        }
+
+        .substitute-mini .icon {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="content">
+            <div class="header">
+                <h1 class="title">When We Shift the Center</h1>
+                <p class="subtitle">The wheel designed to roll... becomes the wheel that traps</p>
+            </div>
+
+            <div class="wheels-container">
+                <!-- Healthy Wheel -->
+                <div class="wheel-wrapper healthy" data-build="1">
+                    <svg class="wheel-svg" viewBox="0 0 400 400">
+                        <defs>
+                            <radialGradient id="godGlow" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#fffef0" />
+                                <stop offset="30%" stop-color="#ffd700" />
+                                <stop offset="60%" stop-color="#f4a020" />
+                                <stop offset="100%" stop-color="#b8860b" />
+                            </radialGradient>
+                            <radialGradient id="healthyAmbient" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="rgba(255,215,0,0.3)" />
+                                <stop offset="50%" stop-color="rgba(255,215,0,0.1)" />
+                                <stop offset="100%" stop-color="rgba(255,215,0,0)" />
+                            </radialGradient>
+                        </defs>
+
+                        <g transform="translate(200, 200)">
+                            <!-- Ambient glow -->
+                            <circle cx="0" cy="0" r="180" fill="url(#healthyAmbient)" />
+
+                            <!-- Outer rim -->
+                            <circle cx="0" cy="0" r="150" fill="none" stroke="rgba(100,100,100,0.8)" stroke-width="10" />
+                            <circle cx="0" cy="0" r="145" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+
+                            <!-- Spokes (16 spokes) -->
+                            <g stroke="rgba(120,120,120,0.6)" stroke-width="1.5">
+                                <line x1="0" y1="-40" x2="0" y2="-140" />
+                                <line x1="0" y1="-40" x2="0" y2="-140" transform="rotate(22.5)" />
+                                <line x1="0" y1="-40" x2="0" y2="-140" transform="rotate(45)" />
+                                <line x1="0" y1="-40" x2="0" y2="-140" transform="rotate(67.5)" />
+                                <line x1="0" y1="-40" x2="0" y2="-140" transform="rotate(90)" />
+                                <line x1="0" y1="-40" x2="0" y2="-140" transform="rotate(112.5)" />
+                                <line x1="0" y1="-40" x2="0" y2="-140" transform="rotate(135)" />
+                                <line x1="0" y1="-40" x2="0" y2="-140" transform="rotate(157.5)" />
+                                <line x1="0" y1="-40" x2="0" y2="-140" transform="rotate(180)" />
+                                <line x1="0" y1="-40" x2="0" y2="-140" transform="rotate(202.5)" />
+                                <line x1="0" y1="-40" x2="0" y2="-140" transform="rotate(225)" />
+                                <line x1="0" y1="-40" x2="0" y2="-140" transform="rotate(247.5)" />
+                                <line x1="0" y1="-40" x2="0" y2="-140" transform="rotate(270)" />
+                                <line x1="0" y1="-40" x2="0" y2="-140" transform="rotate(292.5)" />
+                                <line x1="0" y1="-40" x2="0" y2="-140" transform="rotate(315)" />
+                                <line x1="0" y1="-40" x2="0" y2="-140" transform="rotate(337.5)" />
+                            </g>
+
+                            <!-- Center hub with GOD -->
+                            <circle cx="0" cy="0" r="50" fill="rgba(255,215,0,0.2)" />
+                            <circle cx="0" cy="0" r="38" fill="url(#godGlow)" />
+                            <circle cx="-8" cy="-10" r="18" fill="rgba(255,255,255,0.35)" />
+
+                            <!-- GOD text -->
+                            <text x="0" y="6" text-anchor="middle" dominant-baseline="middle"
+                                  fill="#4a3810" font-size="22" font-weight="700"
+                                  font-family="Georgia, serif" letter-spacing="3px">GOD</text>
+
+                            <!-- Sample labels around rim -->
+                            <g fill="rgba(255,255,255,0.5)" font-size="10" font-family="'Montserrat', sans-serif">
+                                <text x="0" y="-165" text-anchor="middle">Rest</text>
+                                <text x="117" y="-117" text-anchor="start" font-size="9">Family</text>
+                                <text x="165" y="0" text-anchor="start">Work</text>
+                                <text x="117" y="117" text-anchor="start" font-size="9">Health</text>
+                                <text x="0" y="175" text-anchor="middle">Pleasure</text>
+                                <text x="-117" y="117" text-anchor="end" font-size="9">Honor</text>
+                                <text x="-165" y="0" text-anchor="end">Finances</text>
+                                <text x="-117" y="-117" text-anchor="end" font-size="9">Faith</text>
+                            </g>
+                        </g>
+                    </svg>
+                    <div class="wheel-label">
+                        <div class="wheel-title">God at the Center</div>
+                        <div class="wheel-desc">Everything in its proper place</div>
+                    </div>
+                </div>
+
+                <!-- Arrow -->
+                <div class="arrow-container" data-build="2">
+                    <div class="arrow">→</div>
+                </div>
+
+                <!-- Broken Wheel -->
+                <div class="wheel-wrapper broken" data-build="2">
+                    <svg class="wheel-svg" viewBox="0 0 400 400">
+                        <defs>
+                            <radialGradient id="wealthGlow" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#90EE90" />
+                                <stop offset="40%" stop-color="#4a9c6d" />
+                                <stop offset="100%" stop-color="#2d5a3d" />
+                            </radialGradient>
+                            <radialGradient id="brokenAmbient" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="rgba(74,156,109,0.2)" />
+                                <stop offset="50%" stop-color="rgba(74,156,109,0.05)" />
+                                <stop offset="100%" stop-color="rgba(74,156,109,0)" />
+                            </radialGradient>
+                            <filter id="wobble">
+                                <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" result="noise" />
+                                <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" />
+                            </filter>
+                        </defs>
+
+                        <!-- Slightly tilted/wobbled wheel -->
+                        <g transform="translate(200, 200) rotate(3)">
+                            <!-- Dim ambient -->
+                            <circle cx="0" cy="0" r="180" fill="url(#brokenAmbient)" />
+
+                            <!-- Outer rim - slightly warped -->
+                            <ellipse cx="0" cy="0" rx="155" ry="148" fill="none" stroke="rgba(80,80,80,0.7)" stroke-width="10" />
+                            <ellipse cx="0" cy="0" rx="150" ry="143" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+
+                            <!-- Spokes - some bent/broken -->
+                            <g stroke="rgba(100,100,100,0.5)" stroke-width="1.5">
+                                <!-- Normal spokes -->
+                                <line x1="0" y1="-45" x2="0" y2="-138" />
+                                <line x1="0" y1="-45" x2="0" y2="-138" transform="rotate(45)" />
+                                <line x1="0" y1="-45" x2="0" y2="-138" transform="rotate(90)" />
+                                <line x1="0" y1="-45" x2="0" y2="-138" transform="rotate(135)" />
+                                <line x1="0" y1="-45" x2="0" y2="-138" transform="rotate(180)" />
+                                <line x1="0" y1="-45" x2="0" y2="-138" transform="rotate(225)" />
+                                <line x1="0" y1="-45" x2="0" y2="-138" transform="rotate(270)" />
+                                <line x1="0" y1="-45" x2="0" y2="-138" transform="rotate(315)" />
+
+                                <!-- Bent spokes (subtle curves) -->
+                                <path d="M 16 -43 Q 25 -90 20 -136" transform="rotate(22.5)" fill="none" />
+                                <path d="M 16 -43 Q 30 -85 22 -136" transform="rotate(67.5)" fill="none" />
+                                <path d="M 16 -43 Q 20 -95 18 -136" transform="rotate(157.5)" fill="none" />
+                                <path d="M 16 -43 Q 28 -88 15 -136" transform="rotate(247.5)" fill="none" />
+
+                                <!-- Broken spoke -->
+                                <line x1="0" y1="-45" x2="5" y2="-85" transform="rotate(112.5)" stroke="rgba(180,80,80,0.6)" />
+                                <line x1="8" y1="-95" x2="12" y2="-136" transform="rotate(112.5)" stroke="rgba(180,80,80,0.6)" stroke-dasharray="4 3" />
+
+                                <line x1="0" y1="-45" x2="-3" y2="-80" transform="rotate(292.5)" stroke="rgba(180,80,80,0.6)" />
+                                <line x1="-5" y1="-90" x2="-8" y2="-136" transform="rotate(292.5)" stroke="rgba(180,80,80,0.6)" stroke-dasharray="4 3" />
+                            </g>
+
+                            <!-- Center hub with WEALTH -->
+                            <circle cx="0" cy="0" r="55" fill="rgba(74,156,109,0.15)" />
+                            <circle cx="0" cy="0" r="42" fill="url(#wealthGlow)" />
+                            <circle cx="-6" cy="-8" r="16" fill="rgba(255,255,255,0.25)" />
+
+                            <!-- Money bag icon -->
+                            <text x="0" y="-5" text-anchor="middle" font-size="28">💰</text>
+
+                            <!-- WEALTH text -->
+                            <text x="0" y="22" text-anchor="middle" dominant-baseline="middle"
+                                  fill="#1a3d28" font-size="12" font-weight="700"
+                                  font-family="'Montserrat', sans-serif" letter-spacing="2px">WEALTH</text>
+
+                            <!-- Labels tilted/displaced -->
+                            <g fill="rgba(255,255,255,0.4)" font-size="10" font-family="'Montserrat', sans-serif">
+                                <text x="5" y="-165" text-anchor="middle" transform="rotate(-5)">Rest</text>
+                                <text x="125" y="-110" text-anchor="start" font-size="9">Family</text>
+                                <text x="168" y="8" text-anchor="start">Work</text>
+                                <text x="120" y="125" text-anchor="start" font-size="9">Health</text>
+                                <text x="-5" y="178" text-anchor="middle">Pleasure</text>
+                                <text x="-125" y="120" text-anchor="end" font-size="9">Honor</text>
+                                <text x="-170" y="5" text-anchor="end">Finances</text>
+                                <text x="-120" y="-115" text-anchor="end" font-size="9">Faith</text>
+                            </g>
+
+                            <!-- Stress marks / cracks -->
+                            <g stroke="rgba(180,80,80,0.3)" stroke-width="1" fill="none">
+                                <path d="M -45 -20 L -55 -28 L -50 -35" />
+                                <path d="M 48 15 L 58 20 L 55 28" />
+                            </g>
+                        </g>
+                    </svg>
+                    <div class="wheel-label">
+                        <div class="wheel-title">A Substitute at the Center</div>
+                        <div class="wheel-desc">Everything becomes distorted</div>
+                    </div>
+
+                    <!-- Mini indicators showing the four substitutes -->
+                    <div class="substitutes-row" data-build="3">
+                        <div class="substitute-mini active">
+                            <span class="icon">💰</span>
+                            <span>Wealth</span>
+                        </div>
+                        <div class="substitute-mini">
+                            <span class="icon">🍷</span>
+                            <span>Pleasure</span>
+                        </div>
+                        <div class="substitute-mini">
+                            <span class="icon">👑</span>
+                            <span>Power</span>
+                        </div>
+                        <div class="substitute-mini">
+                            <span class="icon">🏆</span>
+                            <span>Honor</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transition -->
+            <div class="transition-bar" data-build="4">
+                <p class="transition-text">
+                    And when something finite is at the center... <em>a predictable cycle begins.</em>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>const totalBuilds = 4;</script>
+    <script src="../../../../../library/creative-dna/core/builds.js"></script>
+</body>
+</html>

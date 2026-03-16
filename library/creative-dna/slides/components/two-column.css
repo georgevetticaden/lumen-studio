@@ -1,0 +1,39 @@
+/**
+ * Two-Column Layout Component
+ *
+ * Usage:
+ * <div class="content content-two-col">
+ *     <div class="left-column">Text content</div>
+ *     <div class="right-column">Image or visual</div>
+ * </div>
+ *
+ * Requires header.css for .content base styles.
+ * Override .content padding/gap inline for slide-specific spacing.
+ *
+ * IMPORTANT: Both columns use min-height: 0 to override the CSS Grid
+ * default (min-height: auto). Without this, images with tall intrinsic
+ * heights (e.g. portrait 9:16) inflate the grid row, breaking flex
+ * layouts like flex:1 + justify-content:center in the left column.
+ */
+
+.content-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 50px;
+    padding: 60px 70px;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.right-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    overflow: hidden;
+}

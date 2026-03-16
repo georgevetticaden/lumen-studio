@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide 3: The Four Substitutes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Theme base -->
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/theme-base.css">
+    <!-- Standard components -->
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/header.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/header-colors.css">
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/typography.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/typography-colors.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/component-colors.css">
+
+    <style>
+        /* ── Slide-specific overrides ── */
+        .content {
+            padding: 50px 60px;
+        }
+
+        .header {
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            font-size: 28px;
+        }
+
+        /* ── Four paths grid (custom build animation: translateY 30px) ── */
+        .paths-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            flex: 1;
+            margin-top: 20px;
+        }
+
+        .path-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 30px 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s ease-out;
+        }
+
+        .path-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .path-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent-color);
+            opacity: 0.7;
+        }
+
+        /* Card colors */
+        .path-card.wealth { --accent-color: #4a9c6d; }
+        .path-card.pleasure { --accent-color: #9c4a7d; }
+        .path-card.power { --accent-color: #9c6d4a; }
+        .path-card.honor { --accent-color: #4a6d9c; }
+
+        .path-icon {
+            font-size: 52px;
+            margin-bottom: 25px;
+        }
+
+        .path-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .path-lie {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.7);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .path-lie::before,
+        .path-lie::after {
+            content: '"';
+            color: var(--accent-color);
+            opacity: 0.7;
+        }
+
+        /* Large background number */
+        .path-number {
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 80px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.03);
+            line-height: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="content">
+            <div class="header">
+                <h1 class="title">The Four Substitutes</h1>
+                <p class="subtitle">What we reach for instead of God</p>
+            </div>
+
+            <div class="paths-grid">
+                <!-- Wealth -->
+                <div class="path-card wealth" data-build="1">
+                    <div class="path-icon">💰</div>
+                    <h3 class="path-name">Wealth</h3>
+                    <p class="path-lie">If I just had enough...</p>
+                    <div class="path-number">1</div>
+                </div>
+
+                <!-- Pleasure -->
+                <div class="path-card pleasure" data-build="2">
+                    <div class="path-icon">🍷</div>
+                    <h3 class="path-name">Pleasure</h3>
+                    <p class="path-lie">If I just felt good enough...</p>
+                    <div class="path-number">2</div>
+                </div>
+
+                <!-- Power -->
+                <div class="path-card power" data-build="3">
+                    <div class="path-icon">👑</div>
+                    <h3 class="path-name">Power</h3>
+                    <p class="path-lie">If I could just control enough...</p>
+                    <div class="path-number">3</div>
+                </div>
+
+                <!-- Honor -->
+                <div class="path-card honor" data-build="4">
+                    <div class="path-icon">🏆</div>
+                    <h3 class="path-name">Honor</h3>
+                    <p class="path-lie">If enough people respected me...</p>
+                    <div class="path-number">4</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>const totalBuilds = 4;</script>
+    <script src="../../../../../library/creative-dna/core/builds.js"></script>
+</body>
+</html>

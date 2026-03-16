@@ -1,0 +1,63 @@
+/**
+ * Transition Statement Component — Structural
+ * Theme-AGNOSTIC: no colors defined here.
+ * Pair with a theme-specific component-colors.css:
+ *   - sacred-gold: library/themes/sacred-gold/component-colors.css
+ *   - luminous-ivory: library/themes/luminous-ivory/component-colors.css
+ *
+ * For section transitions or key takeaways at end of slides.
+ *
+ * Usage:
+ * <div class="transition-statement">
+ *     <p class="transition-text">
+ *         Key insight with <em>emphasized phrase</em> for impact.
+ *     </p>
+ * </div>
+ */
+
+.transition-statement {
+    margin-top: 20px;
+    padding-top: 25px;
+    border-top-width: 1px;
+    border-top-style: solid;
+}
+
+.transition-text {
+    font-size: 26px;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+.transition-text em {
+    font-style: normal;
+    font-weight: 400;
+}
+
+/* Accent border variant */
+.transition-statement.transition-accent {
+    /* border-top-color set by theme */
+}
+
+/* Centered variant */
+.transition-statement.transition-centered {
+    text-align: center;
+}
+
+/* No border variant */
+.transition-statement.transition-clean {
+    border-top: none;
+    padding-top: 0;
+}
+
+/* Arrow indicator variant */
+.transition-statement.transition-arrow::before {
+    content: '→';
+    display: block;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+/* Large variant for standalone transition slides */
+.transition-statement.transition-large .transition-text {
+    font-size: 36px;
+}

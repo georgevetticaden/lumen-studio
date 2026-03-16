@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Title | OCIA</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Theme base -->
+    <link rel="stylesheet" href="../../../../../library/themes/luminous-ivory/theme-base.css">
+    <link rel="stylesheet" href="../../../../../library/themes/luminous-ivory/variables.css">
+    <!-- Standard components -->
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/header.css">
+    <link rel="stylesheet" href="../../../../../library/themes/luminous-ivory/header-colors.css">
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/typography.css">
+    <link rel="stylesheet" href="../../../../../library/themes/luminous-ivory/typography-colors.css">
+    <link rel="stylesheet" href="../../../../../library/themes/luminous-ivory/component-colors.css">
+    <!-- Build system -->
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/build-system.css">
+
+    <style>
+        /* ── Slide-specific overrides ── */
+
+        .content {
+            padding: 50px 60px;
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .title {
+            margin-bottom: 12px;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        /* ===== TWO-COLUMN LAYOUT ===== */
+        /* Grid children need min-height: 0 to prevent tall images
+           from inflating the grid row (CSS Grid min-height:auto bug). */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+            gap: 50px;
+            flex: 1;
+        }
+
+        .two-column > * {
+            min-height: 0;
+        }
+
+        /* ===== QUOTE BLOCK ===== */
+        .quote-block {
+            border-left: 4px solid rgba(170, 120, 20, 0.7);
+            background: #fff;
+            padding: 25px 30px;
+            border-radius: 0 8px 8px 0;
+            box-shadow:
+                0 1px 2px rgba(0, 0, 0, 0.12),
+                0 4px 12px rgba(0, 0, 0, 0.08),
+                0 16px 48px rgba(0, 0, 0, 0.06);
+        }
+
+        /* ===== CARD ===== */
+        .card {
+            background: #fff;
+            border: 1px solid rgba(45, 42, 38, 0.06);
+            border-radius: 12px;
+            padding: 30px 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow:
+                0 1px 2px rgba(0, 0, 0, 0.12),
+                0 4px 12px rgba(0, 0, 0, 0.08),
+                0 16px 48px rgba(0, 0, 0, 0.06);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: rgba(170, 120, 20, 0.65);
+            opacity: 0.7;
+        }
+
+        .card-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 400;
+            color: #1E1B17;
+            margin-bottom: 10px;
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: rgba(45, 42, 38, 0.65);
+            line-height: 1.5;
+        }
+
+        /* ===== IMAGE PLACEHOLDER ===== */
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            min-height: 200px;
+            background: linear-gradient(145deg, rgba(45, 42, 38, 0.06), rgba(45, 42, 38, 0.03));
+            border-radius: 12px;
+            border: 1px solid rgba(45, 42, 38, 0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .placeholder-icon {
+            font-size: 56px;
+            margin-bottom: 20px;
+            opacity: 0.4;
+        }
+
+        .placeholder-text {
+            color: rgba(45, 42, 38, 0.40);
+            font-size: 14px;
+            text-align: center;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="content">
+            <!-- Header (always visible) -->
+            <div class="header">
+                <h1 class="title">Slide Title Here</h1>
+                <p class="subtitle">Subtitle or scripture reference</p>
+            </div>
+
+            <!-- Main content -->
+            <div class="main">
+                <div class="two-column">
+                    <!-- Left: Text content with builds -->
+                    <div class="text-column">
+                        <div class="build-item" data-build="1">
+                            <p class="body-text">
+                                First point with <strong>emphasized text</strong> and
+                                <em>highlighted phrases</em> for key concepts.
+                            </p>
+                        </div>
+
+                        <div class="quote-block build-item" data-build="2">
+                            <p class="quote-text">
+                                "Our hearts are restless until they <em>rest in you</em>."
+                            </p>
+                            <p class="quote-attribution">— St. Augustine, Confessions</p>
+                        </div>
+
+                        <div class="build-item" data-build="3">
+                            <p class="quote-text" style="font-size: 26px; font-weight: 300;">
+                                This leads us to consider <em>the deeper meaning</em> of our journey.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right: Image placeholder -->
+                    <!-- data-prompt links to an external prompt file for /image generation -->
+                    <div class="image-column">
+                        <div class="image-placeholder" data-prompt="images/prompts/slide-NN-description-v1.md">
+                            <div class="placeholder-icon">📚</div>
+                            <div class="placeholder-text">
+                                <strong>IMAGE:</strong> Brief description of the visual
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>const totalBuilds = 3;</script>
+    <script src="../../../../../library/creative-dna/core/builds.js"></script>
+</body>
+</html>

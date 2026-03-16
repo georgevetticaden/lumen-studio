@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Title</title>
+
+    <!--
+    THEME: Replace with your theme's font imports
+    - clean-slate: Space Grotesk, DM Sans, JetBrains Mono
+    - sacred-gold: Cormorant Garamond, Montserrat
+    -->
+    <style>
+        /* ============================================
+           RESET & BASE
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0a0a0a;
+        }
+
+        /* ============================================
+           SLIDE CONTAINER
+           ============================================ */
+        .slide {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            overflow: hidden;
+            /* THEME: Replace with theme background */
+            background: linear-gradient(180deg, #0d0d12 0%, #0a0a0f 100%);
+        }
+
+        /* ============================================
+           CONTENT AREA
+           ============================================ */
+        .content {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            padding: 50px 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ============================================
+           TYPOGRAPHY
+           ============================================ */
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .title {
+            font-size: 48px;
+            font-weight: 300;
+            color: #fff;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            font-size: 28px;
+            font-weight: 300;
+            color: rgba(20, 184, 166, 0.9); /* THEME: accent color */
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        /* ============================================
+           BUILD ANIMATIONS
+           ============================================ */
+        .build-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease-out;
+        }
+
+        .build-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Elements visible from start */
+        .always-visible {
+            opacity: 1;
+        }
+
+        /* ============================================
+           LAYOUT HELPERS
+           ============================================ */
+        /* NOTE: Grid children need min-height: 0 to prevent tall images
+           from inflating the grid row (CSS Grid min-height:auto bug). */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+            gap: 50px;
+            flex: 1;
+        }
+
+        .two-column > * {
+            min-height: 0;
+        }
+
+        .three-column {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 1fr;
+            gap: 30px;
+        }
+
+        .three-column > * {
+            min-height: 0;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        /* ============================================
+           COMPONENTS (inline examples)
+           ============================================ */
+
+        /* Card */
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 30px 25px;
+        }
+
+        /* Quote Block */
+        .quote-block {
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(20, 184, 166, 0.03));
+            border-left: 4px solid rgba(20, 184, 166, 0.6);
+            padding: 25px 30px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .quote-text {
+            font-size: 24px;
+            font-weight: 300;
+            color: #fff;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .quote-attribution {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+            margin-top: 12px;
+        }
+
+        /* Image Placeholder */
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, rgba(40, 40, 60, 0.4), rgba(25, 25, 45, 0.4));
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .placeholder-icon {
+            font-size: 56px;
+            margin-bottom: 20px;
+            opacity: 0.4;
+        }
+
+        .placeholder-text {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 14px;
+            text-align: center;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="content">
+            <!-- Header (always visible) -->
+            <div class="header always-visible">
+                <h1 class="title">Slide Title Here</h1>
+                <p class="subtitle">Subtitle or tagline here</p>
+            </div>
+
+            <!-- Main content area -->
+            <div class="two-column">
+                <!-- Left column: Text content with builds -->
+                <div class="text-column">
+                    <div class="build-item" data-build="1">
+                        <p>First build content here</p>
+                    </div>
+
+                    <div class="build-item" data-build="2">
+                        <p>Second build content here</p>
+                    </div>
+
+                    <div class="build-item" data-build="3">
+                        <p>Third build content here</p>
+                    </div>
+                </div>
+
+                <!-- Right column: Image placeholder -->
+                <!-- data-prompt links to an external prompt file for /image generation -->
+                <div class="image-column">
+                    <div class="image-placeholder" data-prompt="images/prompts/slide-NN-description-v1.md">
+                        <div class="placeholder-icon">📊</div>
+                        <div class="placeholder-text">
+                            <strong>IMAGE:</strong> Brief description of the image
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Build Animation Script -->
+    <script>
+    (function() {
+        // ============================================
+        // CONFIGURATION - Modify these values
+        // ============================================
+        const totalBuilds = 3;    // Set to your total number of builds
+        const initialBuild = 0;   // Starting build state (0 = nothing shown)
+
+        // ============================================
+        // BUILD SYSTEM - Do not modify below
+        // ============================================
+        let currentBuild = initialBuild;
+        const buildItems = document.querySelectorAll('[data-build]');
+
+        function showBuild(buildNumber) {
+            buildItems.forEach(item => {
+                const itemBuild = parseInt(item.dataset.build);
+                if (itemBuild <= buildNumber) {
+                    item.classList.add('visible');
+                } else {
+                    item.classList.remove('visible');
+                }
+            });
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                if (currentBuild < totalBuilds) {
+                    currentBuild++;
+                    showBuild(currentBuild);
+                }
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                if (currentBuild > 0) {
+                    currentBuild--;
+                    showBuild(currentBuild);
+                }
+            } else if (e.key === 'Home') {
+                e.preventDefault();
+                currentBuild = 0;
+                showBuild(currentBuild);
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                currentBuild = totalBuilds;
+                showBuild(currentBuild);
+            }
+        });
+
+        // Initialize
+        showBuild(initialBuild);
+        console.log(`Build system initialized: ${buildItems.length} items, ${totalBuilds} builds`);
+    })();
+    </script>
+</body>
+</html>

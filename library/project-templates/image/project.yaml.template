@@ -1,0 +1,9 @@
+name: "{{NAME}}"
+type: image
+theme: {{THEME}}
+date: {{DATE}}
+
+images_dir: images
+screenshots_dir: images/screenshots
+
+slides: []

@@ -1,0 +1,49 @@
+/* typography-colors.css — Hand Drawn Sketch text colors for diagram typography classes.
+   Pairs with library/creative-dna/diagrams/components/typography.css (structural).
+
+   Typography.css defines sizes/weights/spacing (theme-agnostic).
+   This file defines colors (theme-specific for the hand-drawn sketch theme).
+
+   Uses CSS variables from hand-drawn/theme-base.css:
+   - var(--text-primary): #1a1a1a — headings, titles
+   - var(--text-secondary): #555   — body text, descriptions
+   - var(--text-muted): #888       — labels, captions
+
+   Note: .node-icon, .node-icon-lg, .num-badge, .num-badge-lg, .pill, .pill-lg,
+   and amber accent elements are intentionally excluded — their colors are
+   diagram-specific and applied inline per diagram.
+*/
+
+
+/* ── Node/card elements ── */
+
+.node-title,
+.node-title-lg       { color: var(--text-primary); }
+
+.node-desc,
+.node-desc-lg        { color: var(--text-secondary); }
+
+.node-skill          { color: var(--text-muted); }
+
+
+/* ── Phase/section labels ── */
+
+.phase-label         { color: var(--text-muted); }
+.phase-name          { color: var(--text-primary); }
+.phase-desc          { color: var(--text-muted); }
+.phase-annotation    { color: var(--text-secondary); }
+
+
+/* ── Card sections ── */
+
+.card-section-label  { color: var(--text-muted); }
+.card-section-title  { color: var(--text-primary); }
+
+.card-sub-header,
+.card-sub-header-lg  { color: var(--text-primary); }
+
+
+/* ── Column & annotation ── */
+
+.col-label           { color: var(--text-primary); }
+.annotation          { color: var(--text-muted); }

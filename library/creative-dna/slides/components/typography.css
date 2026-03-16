@@ -1,0 +1,339 @@
+/* typography.css — Structural content typography for presentation slides.
+   Defines font sizes, weights, families, and spacing for all text below title/subtitle.
+   Theme-AGNOSTIC: no colors defined here.
+
+   Pair with a theme-specific colors file:
+   - sacred-gold: library/themes/sacred-gold/typography-colors.css
+
+   Usage: Link after header.css in each slide <head>:
+   <link rel="stylesheet" href="...components/typography.css">
+   <link rel="stylesheet" href="...themes/sacred-gold/typography-colors.css">
+
+   Slides should use these class names in HTML. Slide-specific overrides
+   (colors, spacing, layout) stay inline — but font-size comes from here.
+*/
+
+
+/* ═══════════════════════════════════════════════════════════
+   CARD ELEMENTS — text inside card containers
+   ═══════════════════════════════════════════════════════════ */
+
+/* Card label — uppercase category/type label (e.g., "VENIAL SIN", "ALIENATION")
+   Montserrat 600, 15px uppercase, 2.5px letter-spacing */
+.card-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+}
+
+/* Card name — bold item name inside a card (e.g., "Prudence", "Faith")
+   Montserrat 600, 17px */
+.card-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+/* Card body — standard descriptive text inside a card
+   Montserrat 400, 17px */
+.card-body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.card-body strong {
+    font-weight: 500;
+}
+
+/* Card description — slightly smaller descriptive text (e.g., virtue descriptions)
+   Montserrat 400, 15px */
+.card-desc {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* Card definition label — smaller uppercase label inside definition cards
+   Montserrat 600, 13px uppercase */
+.card-def-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   QUOTE ELEMENTS — italic serif passages and attributions
+   ═══════════════════════════════════════════════════════════ */
+
+/* Quote text — italic serif for CCC quotes, saint quotes, definitions
+   Cormorant Garamond 400 italic, 24px */
+.quote-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.quote-text em {
+    font-style: normal;
+    font-weight: 600;
+}
+
+/* Quote text small — for tighter spaces (staircase cards, compact layouts)
+   Cormorant Garamond 400 italic, 18px */
+.quote-text-sm {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+/* Quote mark — large decorative opening quote
+   Cormorant Garamond 300, 56px */
+.quote-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 300;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: -8px;
+}
+
+/* Attribution — source line below quotes
+   Montserrat 400, 13px */
+.quote-attribution {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   BODY TEXT — standalone paragraphs outside cards
+   ═══════════════════════════════════════════════════════════ */
+
+/* Body text — standard reframe/explanation paragraph
+   Montserrat 400, 18px */
+.body-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+.body-text em {
+    font-style: italic;
+}
+
+.body-text strong {
+    font-weight: 500;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   INSIGHT BAR — bottom-of-slide key takeaway
+   ═══════════════════════════════════════════════════════════ */
+
+/* Insight bar container — structural sizing only (colors in theme typography-colors.css) */
+.insight-bar {
+    border-radius: 14px;
+    padding: 16px 28px;
+}
+
+/* Insight text — key takeaway text
+   Montserrat 400, 17px */
+.insight-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.insight-text em {
+    font-style: italic;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   REFERENCE & ANNOTATION — small supporting text
+   ═══════════════════════════════════════════════════════════ */
+
+/* Reference — inline CCC/scripture citation
+   Montserrat 400, 12px */
+.ref {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+/* Column label — section header in multi-column layouts
+   Montserrat 600, 14px uppercase */
+.col-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* Column sublabel — secondary text under column headers
+   Montserrat 400, 14px */
+.col-sublabel {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* Column note — footnote-style text at bottom of columns
+   Montserrat 400, 12px italic */
+.col-note {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.col-note .ref {
+    font-style: normal;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   PILLS & BADGES — compact tag-like elements
+   ═══════════════════════════════════════════════════════════ */
+
+/* Pill — rounded tag (e.g., "Less serious matter", "Incomplete knowledge")
+   Montserrat 500, 13px */
+.pill {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    display: inline-block;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   CONDITIONS & LISTS — bulleted/structured list items
+   ═══════════════════════════════════════════════════════════ */
+
+/* Condition — bulleted list item (e.g., mortal sin conditions)
+   Montserrat 400, 15px */
+.condition {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.5;
+}
+
+.condition::before {
+    content: '•';
+    position: absolute;
+    left: 4px;
+}
+
+.condition strong {
+    font-weight: 500;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   EMPHASIS UTILITIES — gold highlights, key phrases
+   ═══════════════════════════════════════════════════════════ */
+
+/* Gold emphasis — highlight key phrases in insight/body text
+   (color provided by theme typography-colors.css) */
+.gold {
+    font-weight: 500;
+}
+
+/* Callout hope — small hopeful message in dark contexts (e.g., downward spiral)
+   (color, background, border provided by theme typography-colors.css) */
+.callout-hope {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.4;
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   NUMBER BADGES — circled step/stage numbers
+   ═══════════════════════════════════════════════════════════ */
+
+/* Number badge — standard size for staircase/process steps */
+.number-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+/* Number badge large — for cascade/stage cards */
+.number-badge-lg {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   CYCLE / PROCESS LABELS — small uppercase annotations
+   ═══════════════════════════════════════════════════════════ */
+
+/* Cycle label — small uppercase text in process annotations
+   Montserrat 600, 13px uppercase */
+.cycle-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   ICON — standard emoji icon sizing
+   ═══════════════════════════════════════════════════════════ */
+
+.card-icon {
+    font-size: 38px;
+    line-height: 1;
+}
+
+.card-icon-sm {
+    font-size: 26px;
+    line-height: 1;
+}

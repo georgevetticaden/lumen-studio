@@ -1,0 +1,167 @@
+/**
+ * Diagram Connector Components
+ *
+ * Arrows and connection lines for flow diagrams.
+ */
+
+/* ============================================
+   BASIC ARROWS (Unicode)
+   ============================================ */
+.arrow {
+    font-size: 24px;
+    color: rgba(20, 184, 166, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.arrow-label {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Arrow direction variants */
+.arrow-right::before { content: '→'; }
+.arrow-left::before { content: '←'; }
+.arrow-up::before { content: '↑'; }
+.arrow-down::before { content: '↓'; }
+.arrow-bidirectional::before { content: '↔'; }
+
+/* Arrow size variants */
+.arrow-small { font-size: 18px; }
+.arrow-large { font-size: 32px; }
+
+/* Arrow color variants */
+.arrow-primary { color: rgba(20, 184, 166, 0.7); }
+.arrow-secondary { color: rgba(6, 182, 212, 0.7); }
+.arrow-tertiary { color: rgba(139, 92, 246, 0.7); }
+.arrow-muted { color: rgba(255, 255, 255, 0.3); }
+
+/* ============================================
+   CSS LINE CONNECTORS
+   ============================================ */
+.connector {
+    position: relative;
+    height: 2px;
+    background: linear-gradient(90deg,
+        rgba(20, 184, 166, 0.3),
+        rgba(20, 184, 166, 0.6),
+        rgba(20, 184, 166, 0.3)
+    );
+    min-width: 50px;
+}
+
+/* Arrow head using CSS */
+.connector::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-left-color: rgba(20, 184, 166, 0.6);
+}
+
+/* Dashed connector */
+.connector-dashed {
+    background: repeating-linear-gradient(90deg,
+        rgba(20, 184, 166, 0.5) 0px,
+        rgba(20, 184, 166, 0.5) 8px,
+        transparent 8px,
+        transparent 14px
+    );
+}
+
+/* Bidirectional connector */
+.connector-bidirectional::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-right-color: rgba(20, 184, 166, 0.6);
+}
+
+/* ============================================
+   SVG CONNECTORS
+   ============================================ */
+.connector-svg {
+    overflow: visible;
+}
+
+.connector-svg line,
+.connector-svg path {
+    stroke: rgba(20, 184, 166, 0.5);
+    stroke-width: 2;
+    fill: none;
+}
+
+.connector-svg.dashed line,
+.connector-svg.dashed path {
+    stroke-dasharray: 6 4;
+}
+
+/* Arrowhead marker */
+.connector-svg marker path {
+    fill: rgba(20, 184, 166, 0.6);
+}
+
+/* ============================================
+   FLOW INDICATORS
+   ============================================ */
+.flow-dot {
+    width: 8px;
+    height: 8px;
+    background: rgba(20, 184, 166, 0.8);
+    border-radius: 50%;
+}
+
+.flow-dot-animated {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* ============================================
+   CONNECTION LABELS
+   ============================================ */
+.connection-label {
+    position: absolute;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2px 6px;
+    border-radius: 3px;
+    white-space: nowrap;
+}
+
+/* ============================================
+   VERTICAL CONNECTORS
+   ============================================ */
+.connector-vertical {
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(180deg,
+        rgba(20, 184, 166, 0.3),
+        rgba(20, 184, 166, 0.6),
+        rgba(20, 184, 166, 0.3)
+    );
+    margin: 0 auto;
+}
+
+.connector-vertical::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: rgba(20, 184, 166, 0.6);
+}

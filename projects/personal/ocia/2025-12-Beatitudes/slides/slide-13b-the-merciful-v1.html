@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide 13b: The Merciful</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/theme-base.css">
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/header.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/header-colors.css">
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/typography.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/typography-colors.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/component-colors.css">
+    <style>
+        /* Content padding override */
+        .content {
+            padding: 40px 60px;
+        }
+
+        /* Header */
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: rgba(218, 165, 32, 0.6);
+            margin-bottom: 14px;
+        }
+
+        .beatitude-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .beatitude-icon {
+            font-size: 48px;
+        }
+
+        .beatitude-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 56px;
+            font-weight: 300;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        /* Main content - Two columns, asymmetric */
+        .main-content {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 45% 55%;
+            gap: 60px;
+            align-items: center;
+        }
+
+        /* Left - Scripture */
+        .scripture-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.5s ease-out;
+        }
+
+        .scripture-section.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scripture-block {
+            background: linear-gradient(135deg, rgba(218, 165, 32, 0.08), rgba(218, 165, 32, 0.02));
+            border-left: 4px solid rgba(218, 165, 32, 0.6);
+            padding: 35px 40px;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .scripture-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 300;
+            color: #fff;
+            font-style: italic;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .scripture-text em {
+            font-style: normal;
+            color: rgba(218, 165, 32, 0.95);
+            font-weight: 400;
+            text-decoration: underline;
+            text-decoration-color: rgba(218, 165, 32, 0.4);
+            text-underline-offset: 4px;
+        }
+
+        .scripture-reference {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 0.5px;
+        }
+
+        /* Right - Cultivates flow */
+        .cultivates-section {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 0.5s ease-out;
+        }
+
+        .cultivates-section.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Meaning row */
+        .meaning-block {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease-out;
+        }
+
+        .meaning-block.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .meaning-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 12px;
+        }
+
+        .meaning-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.4;
+        }
+
+        /* Cultivates flow */
+        .cultivates-flow {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(218, 165, 32, 0.2);
+            border-radius: 16px;
+            padding: 30px 35px;
+        }
+
+        .cultivates-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .cultivates-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: rgba(218, 165, 32, 0.8);
+        }
+
+        .cultivates-arrow {
+            color: rgba(218, 165, 32, 0.6);
+            font-size: 20px;
+        }
+
+        .gifts-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* Primary gift - large gold pill */
+        .primary-gift {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, rgba(218, 165, 32, 0.25), rgba(218, 165, 32, 0.12));
+            border: 1px solid rgba(218, 165, 32, 0.5);
+            border-radius: 30px;
+        }
+
+        .gift-icon {
+            font-size: 24px;
+        }
+
+        .gift-name {
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: rgba(218, 165, 32, 0.95);
+        }
+
+        /* Secondary manifestations */
+        .manifestation-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 12px 20px;
+            border-radius: 24px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Flow arrows between tags */
+        .flow-arrow {
+            color: rgba(218, 165, 32, 0.4);
+            font-size: 16px;
+        }
+
+        /* Counter badge */
+        .counter-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 60px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 180px;
+            font-weight: 300;
+            color: rgba(218, 165, 32, 0.04);
+            line-height: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="counter-badge">2</div>
+
+        <div class="content">
+            <!-- Header -->
+            <div class="header">
+                <div class="section-label">Action Beatitude 2 of 4</div>
+                <div class="beatitude-header">
+                    <span class="beatitude-icon">💖</span>
+                    <h1 class="beatitude-name">The Merciful</h1>
+                </div>
+            </div>
+
+            <!-- Main Content - Two Columns -->
+            <div class="main-content">
+                <!-- Left: Scripture -->
+                <div class="scripture-section" data-build="1">
+                    <div class="scripture-block">
+                        <p class="scripture-text">
+                            "Blessed are <em>the merciful</em>, for they shall obtain mercy."
+                        </p>
+                        <p class="scripture-reference">— Matthew 5:7</p>
+                    </div>
+                </div>
+
+                <!-- Right: Cultivates -->
+                <div class="cultivates-section" data-build="2">
+                    <div class="meaning-block" data-build="2">
+                        <div class="meaning-label">What Jesus is really saying</div>
+                        <p class="meaning-text">Becoming a bearer of Divine Mercy to the world</p>
+                    </div>
+
+                    <div class="cultivates-flow">
+                        <div class="cultivates-header">
+                            <span class="cultivates-label">Cultivates</span>
+                            <span class="cultivates-arrow">→</span>
+                        </div>
+                        <div class="gifts-row">
+                            <div class="primary-gift">
+                                <span class="gift-icon">🤲</span>
+                                <span class="gift-name">Mercy</span>
+                            </div>
+                            <span class="flow-arrow">→</span>
+                            <span class="manifestation-tag">Compassion</span>
+                            <span class="manifestation-tag">Forgiveness</span>
+                            <span class="manifestation-tag">Tenderness</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>const totalBuilds = 2;</script>
+    <script src="../../../../../library/creative-dna/core/builds.js"></script>
+</body>
+</html>

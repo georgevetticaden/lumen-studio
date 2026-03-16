@@ -1,0 +1,175 @@
+/* theme-base.css — Hand Drawn Sketch Theme
+   Used for sketch-style diagrams with the Caveat handwriting font.
+   Shared by ALL diagrams using this theme.
+   Includes: CSS variables, reset, body, .diagram container, build animations.
+
+   Font import is via <link> tag in each HTML file (not in CSS).
+   Google Fonts link:
+   https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap
+*/
+
+/* ── CSS Variables ── */
+:root {
+    /* Primary accent — amber/ink */
+    --color-amber: #D97706;
+    --color-amber-rgb: 217, 119, 6;
+    --color-amber-dark: #92400E;
+    --color-amber-dark-rgb: 146, 64, 14;
+
+    /* Ink colors */
+    --color-ink: #1a1a1a;
+    --color-ink-rgb: 26, 26, 26;
+    --color-ink-medium: #333;
+    --color-ink-light: #555;
+    --color-ink-muted: #888;
+
+    /* Background colors */
+    --bg-base: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --bg-card-tinted: #FAFAFA;
+    --bg-phase-box: #FEFDF8;
+    --bg-gold-card: #FFFDF0;
+
+    /* Text colors */
+    --text-primary: #1a1a1a;
+    --text-secondary: #555;
+    --text-muted: #888;
+
+    /* Border colors */
+    --border-solid: #1a1a1a;
+    --border-dashed: #333;
+    --border-medium: #555;
+
+    /* Fonts */
+    --font-sketch: 'Caveat', cursive;
+}
+
+/* ── Reset ── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ── Body ── */
+body {
+    background: #FFFFFF;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* ── Diagram Container ── */
+/* Note: sketch diagrams use variable height (min-height or fixed data-height).
+   Width is 960px. Each diagram sets its own height via data-height attribute. */
+.diagram {
+    width: 960px;
+    background: #FFFFFF;
+    padding: 32px 44px 48px;
+    position: relative;
+    font-family: var(--font-sketch);
+}
+
+/* ── Header ── */
+.header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.title {
+    font-size: 46px;
+    font-weight: 700;
+    color: var(--color-ink);
+    line-height: 1.1;
+    display: inline-block;
+}
+
+.subtitle {
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--color-ink-light);
+    margin-top: 6px;
+    font-style: italic;
+}
+
+/* ── Section labels ── */
+.section-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+/* ── Solid-border card (step cards, source cards, etc.) ── */
+.sketch-card {
+    background: var(--bg-card);
+    border: 2.5px solid var(--border-solid);
+    border-radius: 6px;
+}
+
+/* ── Dashed container (phase boxes, group outlines) ── */
+.sketch-box {
+    border: 3px dashed var(--border-dashed);
+    border-radius: 12px;
+    background: var(--bg-phase-box);
+    position: relative;
+}
+
+/* ── Dashed container label (floats above top border) ── */
+.sketch-box-label {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-phase-box);
+    padding: 0 12px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-ink-light);
+    white-space: nowrap;
+}
+
+/* ── Amber accent pill (skill commands, amber-highlighted labels) ── */
+.skill-pill {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-amber-dark);
+    background: rgba(217, 119, 6, 0.18);
+    border: 1.5px solid rgba(217, 119, 6, 0.5);
+    border-radius: 6px;
+    padding: 3px 10px;
+    font-style: normal;
+}
+
+/* ── Generic pill (deliverable tags, category pills) ── */
+.sketch-pill {
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 20px;
+    padding: 3px 10px;
+    background: rgba(0, 0, 0, 0.06);
+    color: #444;
+    border: 1.5px solid #ccc;
+}
+
+/* ── SVG helpers ── */
+.scribble {
+    stroke: var(--color-ink);
+    stroke-width: 3;
+    fill: none;
+    stroke-linecap: round;
+}
+
+/* ── Build Animations (fade-only for diagrams) ── */
+.build-item {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.build-item.visible {
+    opacity: 1;
+}

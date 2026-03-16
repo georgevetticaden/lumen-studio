@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide 1: Title</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Theme base -->
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/theme-base.css">
+    <!-- Standard components -->
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/header.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/header-colors.css">
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/typography.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/typography-colors.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/component-colors.css">
+
+    <style>
+        /* ── Slide-specific layout ── */
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto 1fr;
+            gap: 30px;
+            padding: 50px 60px;
+        }
+
+        .title-area {
+            grid-column: 1 / -1;
+            padding-left: 20px;
+        }
+
+        .title {
+            font-size: 72px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .subtitle {
+            font-size: 26px;
+        }
+
+        /* Title slide — no decorative quotes */
+        .subtitle::before,
+        .subtitle::after {
+            content: none;
+        }
+
+        .divider-line {
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(218,165,32,0.6), transparent);
+            margin: 20px 0;
+        }
+
+        /* ── Image boxes ── */
+        .image-box {
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-box.modern {
+            background: linear-gradient(135deg, rgba(30, 30, 50, 0.6) 0%, rgba(20, 20, 40, 0.6) 100%);
+        }
+
+        .image-box.sacred {
+            background: linear-gradient(135deg, rgba(50, 35, 25, 0.6) 0%, rgba(30, 20, 15, 0.6) 100%);
+            border-color: rgba(218, 165, 32, 0.15);
+        }
+
+        .box-label {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .modern .box-label {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .sacred .box-label {
+            color: rgba(218, 165, 32, 0.7);
+        }
+
+        .placeholder-content {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .placeholder-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            opacity: 0.4;
+        }
+
+        .placeholder-text {
+            color: rgba(255,255,255,0.4);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="cross-accent"></div>
+
+        <div class="content">
+            <!-- Title at top -->
+            <div class="title-area">
+                <h1 class="title">The Beatitudes</h1>
+                <div class="divider-line"></div>
+                <p class="subtitle">Christ's Answer to Our Deepest Longing</p>
+            </div>
+
+            <!-- Left: Modern Self-Help -->
+            <div class="image-box modern">
+                <div class="placeholder-content">
+                    <div class="placeholder-icon">📚</div>
+                    <div class="placeholder-text">
+                        <strong>IMAGE:</strong> Self-help book collage<br>
+                        (Atomic Habits, 7 Habits, etc.)
+                    </div>
+                </div>
+                <div class="box-label">The World's Answer</div>
+            </div>
+
+            <!-- Right: Sacred/Sermon on Mount -->
+            <div class="image-box sacred">
+                <div class="placeholder-content">
+                    <div class="placeholder-icon">✝️</div>
+                    <div class="placeholder-text">
+                        <strong>IMAGE:</strong> Sermon on the Mount<br>
+                        (Carl Bloch painting or Mount photo)
+                    </div>
+                </div>
+                <div class="box-label">Christ's Answer</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

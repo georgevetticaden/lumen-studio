@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide 4: The Addiction Cycle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/theme-base.css">
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/header.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/header-colors.css">
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/typography.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/typography-colors.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/component-colors.css">
+    <style>
+        /* Slide-specific overrides */
+        .content {
+            padding: 50px 60px;
+        }
+
+        /* Header */
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .title {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            font-size: 28px;
+        }
+
+        /* Main layout */
+        .main-content {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        /* Left side - cycle visualization */
+        .cycle-container {
+            position: relative;
+            width: 100%;
+            height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Circular background */
+        .cycle-ring {
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            border: 2px solid rgba(255, 255, 255, 0.06);
+            border-radius: 50%;
+        }
+
+        .cycle-ring.inner {
+            width: 280px;
+            height: 280px;
+        }
+
+        /* Center text */
+        .cycle-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
+            transition: all 0.6s ease-out;
+        }
+
+        .cycle-center.visible {
+            opacity: 1;
+        }
+
+        .center-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .center-text-emphasis {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            font-weight: 400;
+            color: rgba(218, 165, 32, 0.9);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* Arrows showing circular flow */
+        .cycle-arrow {
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            opacity: 0;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .cycle-arrow.visible {
+            opacity: 1;
+        }
+
+        .cycle-arrow svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Cycle steps positioned around the circle */
+        .cycle-step {
+            position: absolute;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.5s ease-out;
+        }
+
+        .cycle-step.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .step-content {
+            background: rgba(20, 20, 30, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px 20px;
+            text-align: center;
+            min-width: 180px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .step-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: rgba(218, 165, 32, 0.9);
+            margin-bottom: 8px;
+        }
+
+        .step-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.4;
+        }
+
+        .step-text em {
+            font-style: normal;
+            color: rgba(218, 165, 32, 0.9);
+        }
+
+        /* Position each step */
+        .cycle-step.step-1 {
+            top: 0;
+            left: 50%;
+            transform-origin: center;
+        }
+        .cycle-step.step-1.visible {
+            transform: translateX(-50%) scale(1);
+        }
+        .cycle-step.step-1 {
+            transform: translateX(-50%) scale(0.8);
+        }
+
+        .cycle-step.step-2 {
+            top: 25%;
+            right: -30px;
+        }
+
+        .cycle-step.step-3 {
+            bottom: 15%;
+            right: 0px;
+        }
+
+        .cycle-step.step-4 {
+            bottom: 10%;
+            left: 0px;
+        }
+
+        .cycle-step.step-5 {
+            top: 25%;
+            left: -30px;
+        }
+
+        /* Step 5 special styling - the trap */
+        .cycle-step.step-5 .step-content {
+            border-color: rgba(180, 80, 80, 0.4);
+            background: rgba(40, 20, 20, 0.9);
+        }
+
+        .cycle-step.step-5 .step-number {
+            color: rgba(180, 80, 80, 0.9);
+        }
+
+        /* Right side - explanation */
+        .explanation {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .explain-item {
+            opacity: 0;
+            transform: translateX(20px);
+            transition: all 0.5s ease-out;
+        }
+
+        .explain-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .explain-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: rgba(218, 165, 32, 0.7);
+            margin-bottom: 12px;
+        }
+
+        .explain-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.5;
+        }
+
+        .explain-text em {
+            font-style: normal;
+            color: rgba(218, 165, 32, 0.9);
+        }
+
+        .modern-examples {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .example-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Transition statement */
+        .transition-statement {
+            margin-top: 10px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(218, 165, 32, 0.2);
+        }
+
+        .transition-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.5;
+        }
+
+        .transition-text em {
+            font-style: normal;
+            color: rgba(218, 165, 32, 0.95);
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="content">
+            <div class="header">
+                <h1 class="title">The Cycle of Addiction</h1>
+                <p class="subtitle">Why finite things can never satisfy infinite longing</p>
+            </div>
+
+            <div class="main-content">
+                <!-- Left: Cycle visualization -->
+                <div class="cycle-container">
+                    <div class="cycle-ring"></div>
+                    <div class="cycle-ring inner"></div>
+
+                    <!-- Center text - visible immediately -->
+                    <div class="cycle-center visible">
+                        <div class="center-text">Never</div>
+                        <div class="center-text-emphasis">Satisfied</div>
+                    </div>
+
+                    <!-- Circular arrow (shows after all steps) -->
+                    <div class="cycle-arrow" data-build="6">
+                        <svg viewBox="0 0 420 420">
+                            <defs>
+                                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 10 3.5, 0 7" fill="rgba(218, 165, 32, 0.6)" />
+                                </marker>
+                            </defs>
+                            <path d="M 210 40 A 170 170 0 1 1 60 150"
+                                  fill="none"
+                                  stroke="rgba(218, 165, 32, 0.3)"
+                                  stroke-width="2"
+                                  stroke-dasharray="8 4"
+                                  marker-end="url(#arrowhead)" />
+                        </svg>
+                    </div>
+
+                    <!-- Step 1: Top -->
+                    <div class="cycle-step step-1" data-build="1">
+                        <div class="step-content">
+                            <div class="step-number">1</div>
+                            <div class="step-text">We are <em>hungry for God</em></div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Top Right -->
+                    <div class="cycle-step step-2" data-build="2">
+                        <div class="step-content">
+                            <div class="step-number">2</div>
+                            <div class="step-text">We reach for<br><em>something less</em></div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Bottom Right -->
+                    <div class="cycle-step step-3" data-build="3">
+                        <div class="step-content">
+                            <div class="step-number">3</div>
+                            <div class="step-text">We are <em>frustrated</em></div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Bottom Left -->
+                    <div class="cycle-step step-4" data-build="4">
+                        <div class="step-content">
+                            <div class="step-number">4</div>
+                            <div class="step-text">We convince ourselves<br><em>we need more</em></div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Top Left - The Trap -->
+                    <div class="cycle-step step-5" data-build="5">
+                        <div class="step-content">
+                            <div class="step-number">5</div>
+                            <div class="step-text">We become<br><em>enslaved</em></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Explanation -->
+                <div class="explanation">
+                    <div class="explain-item" data-build="6">
+                        <div class="explain-label">The Result</div>
+                        <div class="explain-text">
+                            We find ourselves <em>obsessively turning</em> around finite goods that can <em>never in principle</em> make us happy.
+                        </div>
+                    </div>
+
+                    <div class="explain-item" data-build="7">
+                        <div class="explain-label">Modern Manifestations</div>
+                        <div class="modern-examples">
+                            <span class="example-tag">Workaholism</span>
+                            <span class="example-tag">Alcholism</span>
+                            <span class="example-tag">Substance Abuse</span>
+                            <span class="example-tag">Status Seeking</span>
+                            <span class="example-tag">Achievement</span>
+                            <span class="example-tag">Approval</span>
+                            <span class="example-tag">Control</span>
+                        </div>
+                    </div>
+
+                    <div class="explain-item transition-statement" data-build="8">
+                        <div class="transition-text">
+                            2,000 years ago, on a mountainside,<br><em>Jesus gave the real answer.</em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>const totalBuilds = 8;</script>
+    <script src="../../../../../library/creative-dna/core/builds.js"></script>
+</body>
+</html>

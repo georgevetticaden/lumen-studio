@@ -1,0 +1,14 @@
+/* header-colors.css — Luminous-ivory colors for header.css classes.
+   Pairs with library/creative-dna/slides/components/header.css (structural).
+
+   Header.css defines sizes/weights/spacing (theme-agnostic).
+   This file defines colors (theme-specific for luminous-ivory light theme).
+*/
+
+.title              { color: #1E1B17; }
+.title-emphasis      { color: rgba(170, 120, 20, 0.95); }
+.subtitle            { color: rgba(160, 115, 20, 0.9); }
+.top-label           { color: rgba(160, 115, 20, 0.55); }
+.presenter-name      { color: rgba(45, 42, 38, 0.3); }
+
+/* No .cross-accent colors — luminous-ivory does not use the cross element. */

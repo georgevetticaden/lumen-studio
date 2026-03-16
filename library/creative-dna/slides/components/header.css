@@ -1,0 +1,102 @@
+/* header.css — Structural title/subtitle styles for presentation slides.
+   Theme-AGNOSTIC: no colors defined here.
+   Pair with a theme-specific header-colors.css:
+     - sacred-gold: library/themes/sacred-gold/header-colors.css
+     - luminous-ivory: library/themes/luminous-ivory/header-colors.css
+
+   Default .title is the large content-slide title (74px).
+   Title slide (01) uses .title at 38px + .title-main at 74px — override inline.
+   Slide 11 uses .title at 58px — override inline.
+*/
+
+/* ── Content wrapper ── */
+.content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Title ── */
+.title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 74px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+/* ── Subtitle (with decorative quotes) ── */
+.subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+.subtitle::before {
+    content: '\201C';
+    opacity: 0.5;
+}
+
+.subtitle::after {
+    content: '\201D';
+    opacity: 0.5;
+}
+
+/* ── Cross accent (title slide) ── */
+.cross-accent {
+    position: absolute;
+    top: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 40px;
+    opacity: 0.25;
+    z-index: 2;
+}
+
+.cross-accent::before,
+.cross-accent::after {
+    content: '';
+    position: absolute;
+}
+
+.cross-accent::before {
+    width: 1.5px;
+    height: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.cross-accent::after {
+    width: 22px;
+    height: 1.5px;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* ── Top label (title slide) ── */
+.top-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+/* ── Bottom info (title slide) ── */
+.bottom-info {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 2;
+}
+
+.presenter-name {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}

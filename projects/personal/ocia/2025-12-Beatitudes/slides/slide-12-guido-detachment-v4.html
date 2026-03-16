@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide 12: What Guido Showed Us (Detachment)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/theme-base.css">
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/header.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/header-colors.css">
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/typography.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/typography-colors.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/component-colors.css">
+    <style>
+        .content {
+            padding: 30px 40px 25px 40px;
+        }
+
+        /* Header */
+        .header {
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 44px;
+            margin-bottom: 6px;
+        }
+
+        .subtitle {
+            font-size: 24px;
+        }
+
+        /* 2x2 Grid */
+        .paradox-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 16px;
+        }
+
+        /* Each paradox card */
+        .paradox-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 22px 26px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 0.5s ease-out;
+        }
+
+        .paradox-card.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Colored left accent bar */
+        .paradox-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--accent-color);
+            opacity: 0.8;
+        }
+
+        /* Card colors matching the Four Substitutes */
+        .paradox-card.wealth { --accent-color: #4a9c6d; }
+        .paradox-card.pleasure { --accent-color: #9c4a7d; }
+        .paradox-card.power { --accent-color: #9c6d4a; }
+        .paradox-card.honor { --accent-color: #4a6d9c; }
+
+        /* Beatitude name at top */
+        .beatitude-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+
+        .beatitude-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            font-weight: 400;
+            color: #fff;
+        }
+
+        .freedom-tag {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--accent-color);
+            border-radius: 20px;
+            padding: 4px 12px;
+        }
+
+        .freedom-icon {
+            font-size: 14px;
+        }
+
+        .freedom-text {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-color);
+        }
+
+        /* The paradox transformation */
+        .paradox-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .paradox-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* Left side: What it looked like */
+        .appearance {
+            flex: 1;
+            text-align: right;
+        }
+
+        .appearance-main {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.3;
+        }
+
+        .appearance-main em {
+            font-style: normal;
+            color: rgba(180, 80, 80, 0.9);
+            font-weight: 500;
+        }
+
+        .appearance-sub {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.4);
+            margin-top: 4px;
+            letter-spacing: 0.3px;
+        }
+
+        /* Arrow */
+        .transform-arrow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 8px;
+        }
+
+        .arrow-symbol {
+            font-size: 28px;
+            color: rgba(218, 165, 32, 0.7);
+            line-height: 1;
+        }
+
+        /* Right side: What it actually was */
+        .reality {
+            flex: 1;
+            text-align: left;
+        }
+
+        .reality-main {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.3;
+        }
+
+        .reality-main em {
+            font-style: normal;
+            color: rgba(218, 165, 32, 0.95);
+            font-weight: 500;
+        }
+
+        .reality-sub {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 4px;
+            letter-spacing: 0.3px;
+        }
+
+        /* Bottom tagline */
+        .tagline {
+            text-align: center;
+            padding-top: 16px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s ease-out;
+        }
+
+        .tagline.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .tagline-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 300;
+            color: rgba(218, 165, 32, 0.9);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="content">
+            <div class="header">
+                <h1 class="title">What Guido Showed Us</h1>
+                <p class="subtitle">Detachment — what he released</p>
+            </div>
+
+            <div class="paradox-grid">
+                <!-- Card 1: Poor in Spirit / Wealth -->
+                <div class="paradox-card wealth" data-build="1">
+                    <div class="beatitude-header">
+                        <span class="beatitude-name">Poor in Spirit</span>
+                        <div class="freedom-tag">
+                            <span class="freedom-icon">💰</span>
+                            <span class="freedom-text">Free from Wealth</span>
+                        </div>
+                    </div>
+                    <div class="paradox-content">
+                        <div class="paradox-row">
+                            <div class="appearance">
+                                <div class="appearance-main">He had <em>NOTHING</em></div>
+                                <div class="appearance-sub">stripped of all possessions</div>
+                            </div>
+                            <div class="transform-arrow">
+                                <span class="arrow-symbol">→</span>
+                            </div>
+                            <div class="reality">
+                                <div class="reality-main">He created <em>EVERYTHING</em></div>
+                                <div class="reality-sub">richness from imagination alone</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Those Who Mourn / Pleasure -->
+                <div class="paradox-card pleasure" data-build="2">
+                    <div class="beatitude-header">
+                        <span class="beatitude-name">Those Who Mourn</span>
+                        <div class="freedom-tag">
+                            <span class="freedom-icon">🍷</span>
+                            <span class="freedom-text">Free from Pleasure</span>
+                        </div>
+                    </div>
+                    <div class="paradox-content">
+                        <div class="paradox-row">
+                            <div class="appearance">
+                                <div class="appearance-main">He was <em>TERRIFIED</em></div>
+                                <div class="appearance-sub">facing death every moment</div>
+                            </div>
+                            <div class="transform-arrow">
+                                <span class="arrow-symbol">→</span>
+                            </div>
+                            <div class="reality">
+                                <div class="reality-main">He brought <em>JOY</em></div>
+                                <div class="reality-sub">to his son every moment</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: The Meek / Power -->
+                <div class="paradox-card power" data-build="3">
+                    <div class="beatitude-header">
+                        <span class="beatitude-name">The Meek</span>
+                        <div class="freedom-tag">
+                            <span class="freedom-icon">👑</span>
+                            <span class="freedom-text">Free from Power</span>
+                        </div>
+                    </div>
+                    <div class="paradox-content">
+                        <div class="paradox-row">
+                            <div class="appearance">
+                                <div class="appearance-main">He was <em>POWERLESS</em></div>
+                                <div class="appearance-sub">couldn't stop a single guard</div>
+                            </div>
+                            <div class="transform-arrow">
+                                <span class="arrow-symbol">→</span>
+                            </div>
+                            <div class="reality">
+                                <div class="reality-main">He <em>TRANSFORMED</em> everything</div>
+                                <div class="reality-sub">with wit and love</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Persecuted / Honor -->
+                <div class="paradox-card honor" data-build="4">
+                    <div class="beatitude-header">
+                        <span class="beatitude-name">Persecuted</span>
+                        <div class="freedom-tag">
+                            <span class="freedom-icon">🏆</span>
+                            <span class="freedom-text">Free from Honor</span>
+                        </div>
+                    </div>
+                    <div class="paradox-content">
+                        <div class="paradox-row">
+                            <div class="appearance">
+                                <div class="appearance-main">He looked like a <em>FOOL</em></div>
+                                <div class="appearance-sub">ridiculous to every adult</div>
+                            </div>
+                            <div class="transform-arrow">
+                                <span class="arrow-symbol">→</span>
+                            </div>
+                            <div class="reality">
+                                <div class="reality-main">He saw <em>ONE</em> audience</div>
+                                <div class="reality-sub">only his son's eyes mattered</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tagline -->
+            <div class="tagline" data-build="5">
+                <p class="tagline-text">"How lucky you are if you are not attached..."</p>
+            </div>
+        </div>
+    </div>
+
+    <script>const totalBuilds = 5;</script>
+    <script src="../../../../../library/creative-dna/core/builds.js"></script>
+</body>
+</html>

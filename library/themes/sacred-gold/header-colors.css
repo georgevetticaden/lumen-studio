@@ -1,0 +1,15 @@
+/* header-colors.css — Sacred-gold colors for header.css classes.
+   Pairs with library/creative-dna/slides/components/header.css (structural).
+
+   Header.css defines sizes/weights/spacing (theme-agnostic).
+   This file defines colors (theme-specific for sacred-gold dark theme).
+*/
+
+.title              { color: #fff; }
+.title-emphasis      { color: rgba(218, 165, 32, 0.95); }
+.subtitle            { color: rgba(218, 165, 32, 0.9); }
+.top-label           { color: rgba(218, 165, 32, 0.5); }
+.presenter-name      { color: rgba(255, 255, 255, 0.3); }
+
+.cross-accent::before,
+.cross-accent::after { background: rgba(218, 165, 32, 0.9); }

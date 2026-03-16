@@ -1,0 +1,47 @@
+/* sources.css — Hand Drawn Theme: source input card row
+   Used by Phase 1 diagrams showing research input sources.
+
+   Requires: theme-base.css loaded first (CSS variables must be defined).
+*/
+
+/* ── Sources row (horizontal row of input source cards) ── */
+.sources-row {
+    display: flex;
+    gap: 12px;
+}
+
+.source-card {
+    flex: 1;
+    background: var(--bg-card-tinted);
+    border: 2.5px solid var(--border-solid);
+    border-radius: 6px;
+    padding: 12px 14px;
+    text-align: center;
+}
+
+/* Alternating sketch rotations */
+.source-card:nth-child(1) { transform: rotate(-0.8deg); }
+.source-card:nth-child(2) { transform: rotate(0.5deg); }
+.source-card:nth-child(3) { transform: rotate(-0.4deg); }
+.source-card:nth-child(4) { transform: rotate(0.7deg); }
+
+.source-icon {
+    font-size: 34px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.source-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.source-desc {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    line-height: 1.3;
+    margin-top: 2px;
+}

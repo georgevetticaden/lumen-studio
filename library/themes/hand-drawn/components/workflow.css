@@ -1,0 +1,241 @@
+/* workflow.css — Hand Drawn Theme: shared workflow/process diagram components
+   Used by any sketch diagram that shows phases, steps, arrows, and gold context.
+
+   Requires: theme-base.css loaded first (CSS variables must be defined).
+*/
+
+/* ── Arrow connector (vertical, between sections) ── */
+.arrow-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4px 0 28px;
+}
+
+.arrow-label {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-ink-medium);
+    margin-top: 4px;
+}
+
+.arrow-label-main {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-ink-medium);
+    margin-top: 2px;
+    line-height: 1;
+}
+
+.arrow-label-amber {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-amber);
+    margin-top: 2px;
+    line-height: 1;
+}
+
+/* ── Phase loop box ── */
+.phase-box {
+    border: 3px dashed var(--border-dashed);
+    border-radius: 12px;
+    padding: 16px 18px;
+    background: var(--bg-phase-box);
+    position: relative;
+}
+
+.phase-box-label {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-phase-box);
+    padding: 0 12px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+/* ── Steps row (horizontal step cards inside a phase box) ── */
+.steps-row {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+}
+
+.step-card {
+    flex: 1;
+    background: var(--bg-card);
+    border: 2.5px solid var(--border-solid);
+    border-radius: 6px;
+    padding: 12px 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    position: relative;
+}
+
+/* Alternating sketch rotations */
+.step-card:nth-child(1) { transform: rotate(0.6deg); }
+.step-card:nth-child(3) { transform: rotate(-0.5deg); }
+.step-card:nth-child(5) { transform: rotate(0.4deg); }
+.step-card:nth-child(7) { transform: rotate(-0.7deg); }
+
+.step-num-badge {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid var(--border-solid);
+    background: var(--bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    flex-shrink: 0;
+}
+
+.step-icon { font-size: 32px; }
+
+.step-title {
+    font-size: 29px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.1;
+}
+
+.step-desc {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    line-height: 1.3;
+}
+
+/* Horizontal arrow connector between step cards */
+.step-arrow {
+    display: flex;
+    align-items: center;
+    padding-top: 16px;
+    flex-shrink: 0;
+}
+
+/* ── Gold context card (Phase 1 output) ── */
+.gold-context-card {
+    background: var(--bg-gold-card);
+    border: 3px solid var(--border-solid);
+    border-radius: 8px;
+    padding: 16px 20px;
+    position: relative;
+    transform: rotate(-0.3deg);
+}
+
+.gold-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.gold-star { font-size: 28px; }
+
+.gold-card-title-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.gold-card-label {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.gold-card-title {
+    font-size: 43px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.gold-card-subtitle {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+/* ── Gold context card columns (breakdown inside gold-context-card) ── */
+.gold-cols {
+    display: flex;
+    gap: 0;
+}
+
+.gold-col {
+    flex: 1;
+    text-align: center;
+    padding: 8px 10px;
+    border-right: 1.5px dashed #ccc;
+}
+
+.gold-col:last-child { border-right: none; }
+
+.gold-col-icon {
+    font-size: 29px;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.gold-col-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.gold-col-desc {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+
+/* ── Gold context input card (Phase 2 input) ── */
+.gold-input-card {
+    background: var(--bg-gold-card);
+    border: 3px solid var(--border-solid);
+    border-radius: 8px;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transform: rotate(-0.3deg);
+}
+
+.gold-input-label {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1;
+}
+
+.gold-input-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.1;
+}
+
+.gold-input-desc {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-left: auto;
+    text-align: right;
+}

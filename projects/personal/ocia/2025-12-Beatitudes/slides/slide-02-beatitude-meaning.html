@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide 6: Beatitude = Supreme Happiness</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Theme base -->
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/theme-base.css">
+    <!-- Standard components -->
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/header.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/header-colors.css">
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/typography.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/typography-colors.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/component-colors.css">
+
+    <style>
+        /* ── Slide-specific overrides ── */
+        .content {
+            padding: 60px 80px;
+        }
+
+        .header {
+            margin-bottom: 50px;
+        }
+
+        .title {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            font-size: 28px;
+        }
+
+        /* ── Etymology cards (custom build animation: translateY 30px) ── */
+        .etymology-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            flex: 1;
+            align-items: center;
+        }
+
+        .etymology-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s ease-out;
+        }
+
+        .etymology-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .etymology-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: rgba(218, 165, 32, 0.6);
+        }
+
+        .language-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: rgba(218, 165, 32, 0.7);
+            margin-bottom: 20px;
+        }
+
+        .word {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 42px;
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .meaning {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.7);
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .meaning em {
+            font-style: normal;
+            color: rgba(218, 165, 32, 0.9);
+        }
+
+        /* Third card special — the rendering */
+        .etymology-card.rendering {
+            background: linear-gradient(135deg, rgba(218, 165, 32, 0.08), rgba(218, 165, 32, 0.02));
+            border-color: rgba(218, 165, 32, 0.2);
+        }
+
+        .rendering .language-label {
+            color: rgba(218, 165, 32, 0.9);
+        }
+
+        .rendering-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            font-weight: 300;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .rendering-text em {
+            font-style: normal;
+            color: rgba(218, 165, 32, 0.95);
+            font-weight: 400;
+        }
+
+        /* ── CCC quote at bottom ── */
+        .ccc-quote {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease-out;
+        }
+
+        .ccc-quote.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .quote-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.85);
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .quote-text em {
+            font-style: normal;
+            font-weight: inherit;
+            color: rgba(218, 165, 32, 0.95);
+        }
+
+        .quote-attribution {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: none;
+            letter-spacing: 1px;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="content">
+            <div class="header">
+                <h1 class="title">Beatitude = <span class="title-emphasis">Supreme Happiness</span></h1>
+                <p class="subtitle">The blessedness we're all seeking</p>
+            </div>
+
+            <div class="etymology-grid">
+                <!-- Card 1: Latin -->
+                <div class="etymology-card" data-build="1">
+                    <div class="language-label">Latin</div>
+                    <div class="word">Beātus</div>
+                    <div class="meaning"><em>Blessed</em> • <em>Happy</em> • Fortunate</div>
+                </div>
+
+                <!-- Card 2: Greek -->
+                <div class="etymology-card" data-build="2">
+                    <div class="language-label">Greek</div>
+                    <div class="word">Makários</div>
+                    <div class="meaning">The <em>happiness of the gods</em><br>A state beyond ordinary joy</div>
+                </div>
+
+                <!-- Card 3: The Rendering -->
+                <div class="etymology-card rendering" data-build="3">
+                    <div class="language-label">What Jesus is really saying</div>
+                    <div class="rendering-text">
+                        "<em>How fortunate</em> you are..."<br><br>
+                        "<em>How fulfilled</em> you will be..."<br><br>
+                        "<em>How lucky</em> you are..."
+                    </div>
+                </div>
+            </div>
+
+            <!-- CCC quote -->
+            <div class="ccc-quote" data-build="4">
+                <p class="quote-text">
+                    "The Beatitudes respond to the <em>natural desire for happiness</em>. This desire is of divine origin: God has placed it in the human heart in order to draw man to <em>the One who alone can fulfill it</em>."
+                </p>
+                <p class="quote-attribution">— CCC, 1718</p>
+            </div>
+        </div>
+    </div>
+
+    <script>const totalBuilds = 4;</script>
+    <script src="../../../../../library/creative-dna/core/builds.js"></script>
+</body>
+</html>

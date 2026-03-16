@@ -1,0 +1,18 @@
+/* build-system.css — Standard build animation for slides with progressive reveals.
+   Used alongside builds.js (keyboard navigation + showBuild()).
+
+   Standard pattern: fade + slide up.
+   Slides with custom animations (e.g., slide-05 nodes, slide-16 prayer)
+   define their own transitions inline and don't need this file.
+*/
+
+.build-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-out;
+}
+
+.build-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

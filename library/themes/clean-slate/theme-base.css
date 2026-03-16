@@ -1,0 +1,82 @@
+/* theme-base.css — Clean Slate Light Theme
+   Shared by ALL diagrams and images using this theme.
+   Includes: CSS variables, reset, body, .diagram container, build animations.
+
+   Font import is via <link> tag in each HTML file (not in CSS).
+   Google Fonts link:
+   https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap
+
+   Diagrams needing additional color variables (orange, blue) define them inline.
+*/
+
+/* ── CSS Variables ── */
+:root {
+    /* Primary palette */
+    --color-teal: #0D9488;
+    --color-teal-rgb: 13, 148, 136;
+    --color-cyan: #0891B2;
+    --color-cyan-rgb: 8, 145, 178;
+    --color-purple: #7C3AED;
+    --color-purple-rgb: 124, 58, 237;
+    --color-green: #059669;
+    --color-green-rgb: 5, 150, 105;
+
+    /* Background colors */
+    --bg-base: #F8FAFC;
+    --bg-card: #FFFFFF;
+
+    /* Text colors */
+    --text-primary: #1E293B;
+    --text-secondary: #64748B;
+    --text-muted: #94A3B8;
+
+    /* Title gradient */
+    --gradient-purple: #8B5CF6;
+    --gradient-cyan: #06B6D4;
+
+    /* Fonts */
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* ── Reset ── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ── Body ── */
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #E2E8F0;
+    font-family: var(--font-body);
+}
+
+/* ── Diagram Container ── */
+.diagram {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 20% 30%, rgba(139, 92, 246, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(6, 182, 212, 0.06) 0%, transparent 50%),
+        var(--bg-base);
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    border-radius: 8px;
+}
+
+/* ── Build Animations (fade-only for diagrams) ── */
+.build-item {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.build-item.visible {
+    opacity: 1;
+}

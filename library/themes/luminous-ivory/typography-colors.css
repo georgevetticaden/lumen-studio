@@ -1,0 +1,160 @@
+/* typography-colors.css — Luminous-ivory text colors for typography classes.
+   Pairs with library/creative-dna/slides/components/typography.css (structural).
+
+   Typography.css defines sizes, weights, families, spacing (theme-agnostic).
+   This file defines colors, backgrounds, borders (theme-specific).
+
+   Every theme that supports slides must provide its own typography-colors.css.
+
+   Usage: Link after typography.css in each slide <head>:
+   <link rel="stylesheet" href="...components/typography.css">
+   <link rel="stylesheet" href="...themes/luminous-ivory/typography-colors.css">
+*/
+
+
+/* ═══════════════════════════════════════════════════════════
+   CARD ELEMENTS
+   ═══════════════════════════════════════════════════════════ */
+
+.card-label {
+    color: rgba(45, 42, 38, 0.50);
+}
+
+.card-name {
+    color: #1E1B17;
+}
+
+.card-body {
+    color: rgba(45, 42, 38, 0.65);
+}
+
+.card-body strong {
+    color: rgba(170, 120, 20, 0.95);
+}
+
+.card-desc {
+    color: rgba(45, 42, 38, 0.55);
+}
+
+.card-def-label {
+    color: rgba(45, 42, 38, 0.55);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   QUOTE ELEMENTS
+   ═══════════════════════════════════════════════════════════ */
+
+.quote-text {
+    color: rgba(45, 42, 38, 0.78);
+}
+
+.quote-text em {
+    color: rgba(170, 120, 20, 0.95);
+}
+
+.quote-text-sm {
+    color: rgba(45, 42, 38, 0.55);
+}
+
+.quote-mark {
+    color: rgba(170, 120, 20, 0.50);
+}
+
+.quote-attribution {
+    color: rgba(45, 42, 38, 0.45);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   BODY TEXT
+   ═══════════════════════════════════════════════════════════ */
+
+.body-text {
+    color: rgba(45, 42, 38, 0.78);
+}
+
+.body-text em {
+    color: rgba(170, 120, 20, 0.95);
+}
+
+.body-text strong {
+    color: rgba(45, 42, 38, 0.90);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   INSIGHT BAR
+   ═══════════════════════════════════════════════════════════ */
+
+.insight-bar {
+    background: #fff;
+    border: 1px solid rgba(45, 42, 38, 0.06);
+    border-left: 4px solid rgba(180, 55, 55, 0.55);
+    border-radius: 14px;
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.12),
+        0 4px 12px rgba(0, 0, 0, 0.08),
+        0 16px 48px rgba(0, 0, 0, 0.06);
+}
+
+.insight-text {
+    color: rgba(45, 42, 38, 0.65);
+}
+
+.insight-text em {
+    color: rgba(45, 42, 38, 0.80);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   REFERENCE & ANNOTATION
+   ═══════════════════════════════════════════════════════════ */
+
+.ref {
+    color: rgba(45, 42, 38, 0.35);
+}
+
+.col-label {
+    color: rgba(170, 120, 20, 0.9);
+}
+
+.col-sublabel {
+    color: rgba(45, 42, 38, 0.50);
+}
+
+.col-note {
+    color: rgba(45, 42, 38, 0.45);
+}
+
+.col-note .ref {
+    color: rgba(45, 42, 38, 0.30);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   CONDITIONS & LISTS
+   ═══════════════════════════════════════════════════════════ */
+
+.condition {
+    color: rgba(45, 42, 38, 0.55);
+}
+
+.condition strong {
+    color: rgba(45, 42, 38, 0.78);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   EMPHASIS UTILITIES
+   ═══════════════════════════════════════════════════════════ */
+
+.gold {
+    color: rgba(170, 120, 20, 0.9);
+}
+
+.callout-hope {
+    color: rgba(170, 120, 20, 0.85);
+    background: rgba(170, 120, 20, 0.06);
+    border: 1px solid rgba(170, 120, 20, 0.15);
+}

@@ -1,0 +1,26 @@
+name: "{{NAME}}"
+type: presentation
+theme: {{THEME}}
+date: {{DATE}}
+
+gold:
+  outline: context/gold/{{SLUG}}-outline-v1.md
+
+slides_dir: slides
+screenshots_dir: slides/screenshots
+
+slides: []
+
+talk_track:
+  file: talk-track/{{SLUG}}-talk-track-v1.md
+  tts_script: talk-track/{{SLUG}}-tts-script.md
+
+audio:
+  voice_id: null
+  output_dir: talk-track/audio
+
+exports_dir: exports
+
+google:
+  drive_folder_id: null
+  presentation_title: "{{NAME}} - Generated"

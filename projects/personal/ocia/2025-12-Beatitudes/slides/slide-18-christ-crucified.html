@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide 19: Christ Crucified - The Isenheim Altarpiece</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Theme base -->
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/theme-base.css">
+    <!-- Standard components -->
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/header.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/header-colors.css">
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/typography.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/typography-colors.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/component-colors.css">
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/two-column.css">
+
+    <style>
+        /* ── Slide-specific overrides ── */
+        .content-two-col {
+            padding: 50px 60px;
+        }
+
+        .header {
+            margin-bottom: 25px;
+        }
+
+        .title {
+            font-size: 44px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 24px;
+        }
+
+        /* ── Custom build animations (mixed translateX/translateY) ── */
+        .aquinas-instruction {
+            background: linear-gradient(135deg, rgba(218, 165, 32, 0.1), rgba(218, 165, 32, 0.03));
+            border-left: 4px solid rgba(218, 165, 32, 0.6);
+            padding: 20px 25px;
+            border-radius: 0 10px 10px 0;
+            margin-bottom: 25px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease-out;
+        }
+
+        .aquinas-instruction.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .instruction-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 300;
+            color: #fff;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .instruction-text em {
+            font-style: normal;
+            color: rgba(218, 165, 32, 0.95);
+            font-weight: 400;
+        }
+
+        /* ── Two sections: Despise and Love ── */
+        .sections-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            padding: 20px 25px;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.5s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .section.despise {
+            border: 1px solid rgba(180, 80, 80, 0.3);
+            border-left: 4px solid rgba(180, 80, 80, 0.6);
+        }
+
+        .section.love {
+            border: 1px solid rgba(218, 165, 32, 0.3);
+            border-left: 4px solid rgba(218, 165, 32, 0.6);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .section-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 600;
+        }
+
+        .section.despise .section-label {
+            color: rgba(180, 80, 80, 0.9);
+        }
+
+        .section.love .section-label {
+            color: rgba(218, 165, 32, 0.95);
+        }
+
+        .section-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.5);
+            font-style: italic;
+        }
+
+        /* Grid of items */
+        .items-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 6px;
+        }
+
+        .item-icon {
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .item-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        .section.despise .item-name {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: line-through;
+            text-decoration-color: rgba(180, 80, 80, 0.6);
+        }
+
+        .section.love .item-name {
+            color: rgba(218, 165, 32, 0.95);
+        }
+
+        .item-desc {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.3;
+        }
+
+        /* ── Paradox statement ── */
+        .paradox-statement {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(218, 165, 32, 0.2);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s ease-out;
+        }
+
+        .paradox-statement.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .paradox-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .paradox-text em {
+            font-style: normal;
+            color: rgba(218, 165, 32, 0.95);
+            font-weight: 400;
+        }
+
+        /* ── Image placeholder ── */
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, rgba(50, 40, 35, 0.5), rgba(30, 25, 20, 0.5));
+            border-radius: 12px;
+            border: 1px solid rgba(218, 165, 32, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, rgba(180, 80, 80, 0.6), rgba(218, 165, 32, 0.6));
+        }
+
+        .placeholder-icon {
+            font-size: 72px;
+            margin-bottom: 25px;
+            opacity: 0.5;
+        }
+
+        .placeholder-text {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .painting-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .painting-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: rgba(218, 165, 32, 0.9);
+            font-style: italic;
+        }
+
+        .painting-artist {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="content content-two-col">
+            <!-- Left: Theological Content -->
+            <div class="left-column">
+                <div class="header">
+                    <h1 class="title">Christ Crucified</h1>
+                    <p class="subtitle">The perfect exemplification of the Beatitudes</p>
+                </div>
+
+                <!-- Aquinas instruction -->
+                <div class="aquinas-instruction" data-build="1">
+                    <p class="instruction-text">
+                        "If you want to be happy — <em>despise</em> what Jesus despised on the cross, and <em>love</em> what Jesus loved on the cross."
+                    </p>
+                </div>
+
+                <div class="sections-container">
+                    <!-- What He Despised (Detachment) -->
+                    <div class="section despise" data-build="2">
+                        <div class="section-header">
+                            <span class="section-label">What He Despised</span>
+                            <span class="section-subtitle">— Total Detachment</span>
+                        </div>
+                        <div class="items-grid">
+                            <div class="item">
+                                <span class="item-icon">💰</span>
+                                <div class="item-content">
+                                    <span class="item-name">Wealth</span>
+                                    <span class="item-desc">Stripped naked</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <span class="item-icon">🍷</span>
+                                <div class="item-content">
+                                    <span class="item-name">Pleasure</span>
+                                    <span class="item-desc">Limit of suffering</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <span class="item-icon">👑</span>
+                                <div class="item-content">
+                                    <span class="item-name">Power</span>
+                                    <span class="item-desc">Nailed, can't move</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <span class="item-icon">🏆</span>
+                                <div class="item-content">
+                                    <span class="item-name">Honor</span>
+                                    <span class="item-desc">Publicly mocked</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- What He Loved (Action) -->
+                    <div class="section love" data-build="3">
+                        <div class="section-header">
+                            <span class="section-label">What He Loved</span>
+                            <span class="section-subtitle">— Pure Action</span>
+                        </div>
+                        <div class="items-grid">
+                            <div class="item">
+                                <span class="item-icon">🎯</span>
+                                <div class="item-content">
+                                    <span class="item-name">Righteousness</span>
+                                    <span class="item-desc">Doing the Father's will</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <span class="item-icon">🤲</span>
+                                <div class="item-content">
+                                    <span class="item-name">Mercy</span>
+                                    <span class="item-desc">Ultimate bearer of mercy</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <span class="item-icon">✨</span>
+                                <div class="item-content">
+                                    <span class="item-name">Purity</span>
+                                    <span class="item-desc">The single-hearted one</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <span class="item-icon">🕊️</span>
+                                <div class="item-content">
+                                    <span class="item-name">Peace</span>
+                                    <span class="item-desc">Ultimate peacemaker</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paradox statement -->
+                <div class="paradox-statement" data-build="4">
+                    <p class="paradox-text">
+                        "Though it's very strange to say... if Aquinas is right, <em>that is a picture of a happy man</em>."
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right: Isenheim Altarpiece Image -->
+            <div class="right-column">
+                <div class="image-placeholder">
+                    <div class="placeholder-icon">✝️</div>
+                    <div class="placeholder-text">
+                        <strong>IMAGE:</strong> The Isenheim Altarpiece - Crucifixion Panel<br><br>
+                        <strong>AI Prompt:</strong> "The Isenheim Altarpiece crucifixion panel by Matthias Grünewald,
+                        showing Christ on the cross with dramatically contorted fingers, wounded body covered
+                        in thorns and blisters, John the Baptist pointing with elongated finger, Mary and
+                        John grieving. Dark, somber background. High resolution art reproduction, museum quality."
+                    </div>
+                    <div class="painting-badge">
+                        <div class="painting-title">The Isenheim Altarpiece</div>
+                        <div class="painting-artist">Matthias Grünewald, c. 1512–1516</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>const totalBuilds = 4;</script>
+    <script src="../../../../../library/creative-dna/core/builds.js"></script>
+</body>
+</html>

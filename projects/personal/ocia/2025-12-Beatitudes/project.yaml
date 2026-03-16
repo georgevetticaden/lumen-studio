@@ -1,0 +1,53 @@
+name: The Beatitudes
+type: presentation
+theme: sacred-gold
+date: 2025-12-01
+
+gold:
+  outline: context/gold/beatitudes-preso-outline-v14.md
+
+slides_dir: slides
+screenshots_dir: slides/screenshots
+
+slides:
+  - slide-00-background.html
+  - slide-01-title-v2.html
+  - slide-02-beatitude-meaning.html
+  - slide-03-question-v3.html
+  - slide-04-four-paths-v3.html
+  - slide-04.1-shifted-center.html
+  - slide-05-addiction-v4.html
+  - slide-06-setting-scene.html
+  - slide-07-detachment-action-v6.html
+  - slide-08-life-is-beautiful.html
+  - slide-09a-poor-in-spirit-v2.html
+  - slide-09b-those-who-mourn-v2.html
+  - slide-09c-the-meek-v2.html
+  - slide-09d-persecuted-v2.html
+  - slide-10-video-placeholder.html
+  - slide-11-what-do-you-see.html
+  - slide-12-guido-detachment-v4.html
+  - slide-13a-hunger-righteousness-v1.html
+  - slide-13b-the-merciful-v1.html
+  - slide-13c-pure-of-heart-v1.html
+  - slide-13d-peacemakers-v1.html
+  - slide-14-video-placeholder.html
+  - slide-15-what-do-you-see.html
+  - slide-16-guido-action-v5.html
+  - slide-17-perfect-example.html
+  - slide-17-perfect-examplev2.html
+  - slide-18-christ-crucified.html
+
+talk_track:
+  file: talk-track/beatitudes-talk-track-v5.md
+  tts_script: null
+
+audio:
+  voice_id: null
+  output_dir: talk-track/audio
+
+exports_dir: exports
+
+google:
+  drive_folder_id: null
+  presentation_title: "The Beatitudes - Generated"

@@ -1,0 +1,284 @@
+/* typography.css — Structural content typography for diagrams.
+   Defines font sizes, weights, families, and spacing for all text elements
+   in diagram layouts (nodes, cards, labels, badges, phase indicators).
+   Theme-AGNOSTIC: NO colors defined here.
+
+   Uses CSS variables from theme-base.css:
+   - var(--font-heading): Space Grotesk
+   - var(--font-body): DM Sans
+   - var(--font-mono): JetBrains Mono
+
+   Pair with a theme-specific colors file:
+   - clean-slate: library/themes/clean-slate/typography-colors.css
+
+   Usage: Link after header.css in each diagram <head>:
+   <link rel="stylesheet" href="...diagrams/components/typography.css">
+   <link rel="stylesheet" href="...themes/clean-slate/typography-colors.css">
+
+   Diagrams should use these class names in HTML. Diagram-specific overrides
+   (colors, spacing, layout) stay inline — but font-size comes from here.
+
+   Extracted from proven sizes in the content-creation-workflow-v4-light diagram
+   and validated against the published blog diagrams (2026-01-mindset-agent-launch).
+*/
+
+
+/* ═══════════════════════════════════════════════════════════
+   NODE / CARD ELEMENTS — text inside node containers
+   ═══════════════════════════════════════════════════════════ */
+
+/* Node title — bold item name inside a card (e.g., "Gather", "Create", "Embeddings")
+   Space Grotesk 600, 18px */
+.node-title {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+/* Node title large — for hero/central elements in simpler diagrams
+   Space Grotesk 600, 22px */
+.node-title-lg {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+/* Node description — supporting text below title (e.g., "Claude reads all sources")
+   DM Sans 400, 13px */
+.node-desc {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+/* Node description large — for simpler diagrams with fewer nodes
+   DM Sans 400, 15px */
+.node-desc-lg {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+/* Node skill/tech — monospace annotation (e.g., "/add-youtube", "OpenAI API")
+   JetBrains Mono 500, 12px */
+.node-skill {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   PHASE / SECTION LABELS — circle centers, group headers
+   ═══════════════════════════════════════════════════════════ */
+
+/* Phase label — uppercase category marker (e.g., "PHASE 1", "INPUTS")
+   Space Grotesk 600, 13px uppercase */
+.phase-label {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* Phase name — bold section/group name (e.g., "Research & Context", "Creative Iteration")
+   Space Grotesk 600, 20px */
+.phase-name {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* Phase description — italic tagline below phase name (e.g., "↺ Repeat until vision captured")
+   DM Sans 400 italic, 13px */
+.phase-desc {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* Phase annotation — secondary non-italic note below phase desc (e.g., "Style-aware output")
+   DM Sans 400, 12px */
+.phase-annotation {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   ICONS & NUMBER BADGES — visual markers on nodes
+   ═══════════════════════════════════════════════════════════ */
+
+/* Node icon container — emoji/icon inside a tinted rounded square */
+.node-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+/* Node icon large — for simpler diagrams with fewer nodes */
+.node-icon-lg {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+/* Number badge — small circled step number overlaid on icon
+   Space Grotesk 600, 10px */
+.num-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+/* Number badge large — for standalone step indicators
+   Space Grotesk 600, 14px */
+.num-badge-lg {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   PILLS & BADGES — compact tag-like elements inside cards
+   ═══════════════════════════════════════════════════════════ */
+
+/* Pill — rounded tag (e.g., "Structure", "v1 → vN", "Blog .md")
+   DM Sans 500, 12px */
+.pill {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+/* Pill large — for more prominent tags
+   DM Sans 500, 13px */
+.pill-lg {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   CARD SECTION HEADERS — sub-headers inside compound cards
+   (e.g., Gold Context sub-boxes, Deliverables package names)
+   ═══════════════════════════════════════════════════════════ */
+
+/* Card section label — uppercase category inside a compound card
+   (e.g., "BRIDGE", "DELIVERABLES")
+   Space Grotesk 600, 12px uppercase */
+.card-section-label {
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Card section title — bold name alongside section label
+   (e.g., "· Gold Context")
+   Space Grotesk 600, 16px */
+.card-section-title {
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Card sub-header — name inside a sub-box
+   (e.g., "Iterated Outline", "Blog Package")
+   Space Grotesk 600, 13px */
+.card-sub-header {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+/* Card sub-header large — for more prominent sub-sections
+   Space Grotesk 600, 14px */
+.card-sub-header-lg {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   COLUMN & ANNOTATION LABELS — supporting text
+   ═══════════════════════════════════════════════════════════ */
+
+/* Column label — section header in multi-column layouts
+   Space Grotesk 600, 15px uppercase */
+.col-label {
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Annotation — small italic note (e.g., diagram footnotes)
+   DM Sans 400 italic, 12px */
+.annotation {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 400;
+    font-style: italic;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   SIZING GUIDELINES (reference — not CSS)
+   ═══════════════════════════════════════════════════════════
+
+   Dense diagrams (8+ nodes, like workflow circles):
+     Use standard sizes: node-title (18px), node-desc (13px), pill (12px)
+
+   Medium diagrams (4-6 nodes, like architecture overviews):
+     Use large sizes: node-title-lg (22px), node-desc-lg (15px), pill-lg (13px)
+
+   Simple diagrams (2-3 nodes, like comparisons):
+     Use large sizes + bump phase-name to 24px inline
+
+   The -lg variants exist because diagram density varies significantly.
+   Dense layouts need tighter type; simple layouts can breathe.
+*/

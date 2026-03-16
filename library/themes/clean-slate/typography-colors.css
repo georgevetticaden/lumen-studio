@@ -1,0 +1,49 @@
+/* typography-colors.css — Clean Slate text colors for diagram typography classes.
+   Pairs with library/creative-dna/diagrams/components/typography.css (structural).
+
+   Typography.css defines sizes/weights/spacing (theme-agnostic).
+   This file defines colors (theme-specific for clean-slate light theme).
+
+   Uses CSS variables from clean-slate/theme-base.css:
+   - var(--text-primary): #1E293B — headings, titles
+   - var(--text-secondary): #64748B — body text, descriptions
+   - var(--text-muted): #94A3B8 — labels, captions
+
+   Note: .node-icon, .node-icon-lg, .num-badge, .num-badge-lg, .pill, .pill-lg
+   are intentionally excluded — their colors are diagram-specific (accent colors
+   like teal, purple, cyan) applied inline per diagram.
+*/
+
+
+/* ── Node/card elements ── */
+
+.node-title,
+.node-title-lg       { color: var(--text-primary); }
+
+.node-desc,
+.node-desc-lg        { color: var(--text-secondary); }
+
+.node-skill          { color: var(--text-muted); }
+
+
+/* ── Phase/section labels ── */
+
+.phase-label         { color: var(--text-muted); }
+.phase-name          { color: var(--text-primary); }
+.phase-desc          { color: var(--text-muted); }
+.phase-annotation    { color: var(--text-secondary); }
+
+
+/* ── Card sections ── */
+
+.card-section-label  { color: var(--text-muted); }
+.card-section-title  { color: var(--text-primary); }
+
+.card-sub-header,
+.card-sub-header-lg  { color: var(--text-primary); }
+
+
+/* ── Column & annotation ── */
+
+.col-label           { color: var(--text-primary); }
+.annotation          { color: var(--text-muted); }

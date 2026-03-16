@@ -1,0 +1,41 @@
+/* header.css — Shared header styles for diagrams.
+   Used by all clean-slate light diagrams. Diagram-specific overrides
+   (padding, header margin) stay inline.
+
+   Mirrors the slide header pattern in library/creative-dna/slides/components/header.css.
+   Key difference: diagram titles use a purple-to-cyan gradient instead of plain color.
+*/
+
+/* ── Content wrapper ── */
+.content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Header ── */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* ── Title (gradient text: purple → cyan) ── */
+.title {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+    background: linear-gradient(90deg, var(--gradient-purple) 0%, var(--gradient-cyan) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ── Subtitle ── */
+.subtitle {
+    font-size: 24px;
+    color: var(--text-secondary);
+}

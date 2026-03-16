@@ -1,0 +1,191 @@
+/**
+ * Diagram Node Components
+ *
+ * Various node styles for architecture and flow diagrams.
+ */
+
+/* ============================================
+   BASE NODE
+   ============================================ */
+.node {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px 25px;
+    text-align: center;
+    position: relative;
+}
+
+.node-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.node-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 6px;
+}
+
+.node-description {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.4;
+}
+
+.node-tech {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 8px;
+}
+
+/* ============================================
+   COLOR VARIANTS
+   ============================================ */
+.node-primary {
+    border-color: rgba(20, 184, 166, 0.4);
+    background: rgba(20, 184, 166, 0.08);
+}
+
+.node-secondary {
+    border-color: rgba(6, 182, 212, 0.4);
+    background: rgba(6, 182, 212, 0.08);
+}
+
+.node-tertiary {
+    border-color: rgba(139, 92, 246, 0.4);
+    background: rgba(139, 92, 246, 0.08);
+}
+
+.node-data {
+    border-color: rgba(59, 130, 246, 0.4);
+    background: rgba(59, 130, 246, 0.08);
+}
+
+.node-external {
+    border-color: rgba(107, 114, 128, 0.4);
+    background: rgba(107, 114, 128, 0.08);
+}
+
+.node-user {
+    border-color: rgba(16, 185, 129, 0.4);
+    background: rgba(16, 185, 129, 0.08);
+}
+
+.node-warning {
+    border-color: rgba(245, 158, 11, 0.4);
+    background: rgba(245, 158, 11, 0.08);
+}
+
+/* ============================================
+   SIZE VARIANTS
+   ============================================ */
+.node-small {
+    padding: 12px 16px;
+    min-width: 100px;
+}
+
+.node-small .node-icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.node-small .node-title {
+    font-size: 14px;
+}
+
+.node-small .node-description {
+    font-size: 11px;
+}
+
+.node-large {
+    padding: 30px 35px;
+    min-width: 220px;
+}
+
+.node-large .node-icon {
+    font-size: 42px;
+}
+
+.node-large .node-title {
+    font-size: 20px;
+}
+
+/* ============================================
+   LAYOUT VARIANTS
+   ============================================ */
+.node-horizontal {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-align: left;
+}
+
+.node-horizontal .node-icon {
+    margin-bottom: 0;
+    font-size: 28px;
+}
+
+/* ============================================
+   SPECIAL NODE TYPES
+   ============================================ */
+
+/* Database node */
+.node-database {
+    border-radius: 8px 8px 20px 20px;
+}
+
+.node-database::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    height: 20px;
+    border: 1px solid inherit;
+    border-radius: 8px 8px 0 0;
+    background: inherit;
+}
+
+/* Cloud node */
+.node-cloud {
+    border-radius: 30px;
+}
+
+/* Process node (rectangle with rounded corners) */
+.node-process {
+    border-radius: 8px;
+}
+
+/* Decision node (diamond-like) */
+.node-decision {
+    transform: rotate(0deg);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    padding: 40px;
+}
+
+/* ============================================
+   GROUPED NODES
+   ============================================ */
+.node-group {
+    border: 2px dashed rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.01);
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.node-group-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 15px;
+}
+
+.node-group-content {
+    display: flex;
+    gap: 15px;
+}

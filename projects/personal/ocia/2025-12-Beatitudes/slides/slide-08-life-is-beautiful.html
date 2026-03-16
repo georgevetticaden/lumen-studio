@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide 8: Life is Beautiful</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Theme base -->
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/theme-base.css">
+    <!-- Standard components -->
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/header.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/header-colors.css">
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/typography.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/typography-colors.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/component-colors.css">
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/two-column.css">
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/build-system.css">
+
+    <style>
+        /* ── Slide-specific overrides ── */
+        .left-column {
+            justify-content: center;
+        }
+
+        .header {
+            margin-bottom: 25px;
+        }
+
+        .title {
+            font-size: 52px;
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            white-space: nowrap;
+        }
+
+        /* Build content area */
+        .builds-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* ── Context block ── */
+        .context-block {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .context-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 15px;
+        }
+
+        .context-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.5;
+        }
+
+        .context-text em {
+            font-style: normal;
+            color: rgba(218, 165, 32, 0.9);
+        }
+
+        /* ── Christ-figure statement ── */
+        .christ-figure-block {
+            background: linear-gradient(135deg, rgba(218, 165, 32, 0.1), rgba(218, 165, 32, 0.03));
+            border-left: 4px solid rgba(218, 165, 32, 0.6);
+            padding: 20px 25px;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .christ-figure-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 300;
+            color: #fff;
+            line-height: 1.4;
+        }
+
+        .christ-figure-text em {
+            font-style: normal;
+            color: rgba(218, 165, 32, 0.95);
+            font-weight: 400;
+        }
+
+        /* ── Transition text ── */
+        .transition-block {
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .transition-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 19px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.7);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        /* ── Image placeholder ── */
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, rgba(40, 35, 30, 0.5), rgba(25, 22, 18, 0.5));
+            border-radius: 12px;
+            border: 1px solid rgba(218, 165, 32, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, rgba(218, 165, 32, 0.6), rgba(218, 165, 32, 0.2));
+        }
+
+        .placeholder-icon {
+            font-size: 64px;
+            margin-bottom: 25px;
+            opacity: 0.5;
+        }
+
+        .placeholder-text {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .film-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(218, 165, 32, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="content content-two-col">
+            <!-- Left: Text content -->
+            <div class="left-column">
+                <div class="header">
+                    <h1 class="title">Life is Beautiful</h1>
+                    <p class="subtitle">Our guide through the Beatitudes</p>
+                </div>
+
+                <div class="builds-container">
+                    <!-- Build 1: Context -->
+                    <div class="build-item" data-build="1">
+                        <div class="context-block">
+                            <div class="context-label">The Story</div>
+                            <p class="context-text">
+                                A Jewish Italian father, <em>Guido</em>, is sent to a concentration camp with his young son. To protect his child's innocence, he transforms their nightmare into an <em>elaborate game</em> — embodying sacrificial love to the very end.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Build 2: Christ-figure statement -->
+                    <div class="build-item" data-build="2">
+                        <div class="christ-figure-block">
+                            <p class="christ-figure-text">
+                                Guido is a <em>modern Christ-figure</em> — showing us what the Beatitudes look like when lived in practice, even in humanity's darkest hour.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Build 3: Transition -->
+                    <div class="build-item" data-build="3">
+                        <div class="transition-block">
+                            <p class="transition-text">
+                                As we explore each Beatitude, we'll see how Guido — and ultimately Christ himself — embodies these paradoxical paths to joy...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Film image -->
+            <div class="right-column">
+                <div class="image-placeholder">
+                    <div class="placeholder-icon">🎬</div>
+                    <div class="placeholder-text">
+                        <strong>IMAGE:</strong> Iconic still from "Life is Beautiful"<br><br>
+                        <strong>AI Prompt:</strong> "A warm, sepia-toned film still from 'La Vita è Bella'
+                        (Life is Beautiful) showing Guido, a joyful Italian father in striped concentration
+                        camp uniform, sharing a tender moment with his young son Giosuè. The scene captures
+                        love and hope amid darkness. Cinematic lighting, film grain, 1997 movie aesthetic."
+                    </div>
+                    <div class="film-badge">Academy Award Winner</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>const totalBuilds = 3;</script>
+    <script src="../../../../../library/creative-dna/core/builds.js"></script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide 18: The Perfect Example</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/theme-base.css">
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/header.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/header-colors.css">
+    <link rel="stylesheet" href="../../../../../library/creative-dna/slides/components/typography.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/typography-colors.css">
+    <link rel="stylesheet" href="../../../../../library/themes/sacred-gold/component-colors.css">
+    <style>
+        .content {
+            align-items: center;
+            justify-content: center;
+            padding: 60px 80px;
+            text-align: center;
+        }
+
+        /* Guido reference - fading out */
+        .guido-reference {
+            margin-bottom: 50px;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .guido-reference.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .guido-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.6);
+            font-style: italic;
+        }
+
+        .guido-text em {
+            font-style: normal;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Main question */
+        .main-question {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 0.6s ease-out;
+        }
+
+        .main-question.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .question-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 56px;
+            font-weight: 300;
+            color: #fff;
+            letter-spacing: 2px;
+            line-height: 1.3;
+        }
+
+        .question-text em {
+            font-style: normal;
+            color: rgba(218, 165, 32, 0.95);
+            font-weight: 400;
+        }
+
+        /* Divider */
+        .divider {
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(218, 165, 32, 0.6), transparent);
+            margin-bottom: 50px;
+            opacity: 0;
+            transition: all 0.5s ease-out;
+        }
+
+        .divider.visible {
+            opacity: 1;
+        }
+
+        /* Answer reveal */
+        .answer-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s ease-out;
+        }
+
+        .answer-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .answer-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 42px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        .answer-text em {
+            font-style: normal;
+            color: rgba(218, 165, 32, 0.95);
+            font-weight: 400;
+        }
+
+        .aquinas-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.6);
+            font-style: italic;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .aquinas-attribution {
+            font-size: 14px;
+            color: rgba(218, 165, 32, 0.7);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 15px;
+        }
+
+        /* Decorative cross - subtle */
+        .cross-accent {
+            position: absolute;
+            top: 50px;
+            right: 80px;
+            width: 40px;
+            height: 40px;
+            opacity: 0;
+            transition: all 0.8s ease-out;
+        }
+
+        .cross-accent.visible {
+            opacity: 0.3;
+        }
+
+        .cross-accent::before,
+        .cross-accent::after {
+            content: '';
+            position: absolute;
+            background: rgba(218, 165, 32, 0.8);
+        }
+
+        .cross-accent::before {
+            width: 3px;
+            height: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .cross-accent::after {
+            width: 28px;
+            height: 3px;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="cross-accent" data-build="3"></div>
+        
+        <div class="content">
+
+            <!-- Main question -->
+            <div class="main-question" data-build="2">
+                <p class="question-text">What's a <em>perfect</em><br>example of the Beatitudes?</p>
+            </div>
+
+            <!-- Divider -->
+            <div class="divider" data-build="3"></div>
+
+            <!-- Answer reveal -->
+            <div class="answer-reveal" data-build="3">
+                <p class="answer-text">Thomas Aquinas said: look to <em>Christ Crucified</em>.</p>
+                <p class="aquinas-quote">"If you want the perfect exemplification of the Beatitudes, look to Christ crucified."</p>
+                <p class="aquinas-attribution">— Thomas Aquinas</p>
+            </div>
+        </div>
+    </div>
+
+    <script>const totalBuilds = 3;</script>
+    <script src="../../../../../library/creative-dna/core/builds.js"></script>
+</body>
+</html>

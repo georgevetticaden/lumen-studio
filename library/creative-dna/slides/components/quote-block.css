@@ -1,0 +1,91 @@
+/**
+ * Quote Block Component — Structural
+ * Theme-AGNOSTIC: no colors defined here.
+ * Pair with a theme-specific component-colors.css:
+ *   - sacred-gold: library/themes/sacred-gold/component-colors.css
+ *   - luminous-ivory: library/themes/luminous-ivory/component-colors.css
+ *
+ * Usage:
+ * <div class="quote-block">
+ *     <p class="quote-text">Quote text with <em>emphasis</em></p>
+ *     <p class="quote-attribution">— Author Name</p>
+ * </div>
+ */
+
+.quote-block {
+    border-left-width: 4px;
+    border-left-style: solid;
+    padding: 25px 30px;
+    border-radius: 0 8px 8px 0;
+}
+
+.quote-text {
+    font-size: 26px;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.quote-text em {
+    font-style: normal;
+    font-weight: 400;
+}
+
+.quote-attribution {
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-top: 12px;
+}
+
+/* Large quote variant */
+.quote-block.quote-large .quote-text {
+    font-size: 32px;
+}
+
+/* Centered quote variant */
+.quote-block.quote-centered {
+    text-align: center;
+    border-left: none;
+    border-top-width: 2px;
+    border-top-style: solid;
+    border-radius: 0;
+    padding-top: 30px;
+}
+
+/* ── OCIA Presentation Theme Patterns ── */
+
+/* CCC reference label (used in OCIA slides for Catechism citations) */
+.ccc-ref {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 8px;
+    display: block;
+}
+
+/* CCC quote block (OCIA variant — no background, border-top separator) */
+.ccc-quote {
+    padding-top: 18px;
+    border-top-width: 1px;
+    border-top-style: solid;
+}
+
+.ccc-quote .quote-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.ccc-quote .quote-text em {
+    font-style: normal;
+}
+
+.ccc-quote .quote-attribution {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-top: 8px;
+}
